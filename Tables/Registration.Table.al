@@ -4,27 +4,27 @@ table 50103 "RegistrationTable"
 
     fields
     {
-        field(1; EnrollmentID; Integer)
+        field(10; EnrollmentID; Integer)
         {
             DataClassification = ToBeClassified;
 
         }
-        field(2; StudentID; Integer)
+        field(20; StudentID; Integer)
         {
             DataClassification = ToBeClassified;
 
         }
-        field(3; CourseID; Integer)
+        field(30; CourseID; Integer)
         {
             DataClassification = ToBeClassified;
 
         }
-        field(4; RegistrationDate; Date)
+        field(40; RegistrationDate; Date)
         {
             DataClassification = ToBeClassified;
 
         }
-        field(5; RegistrationStatus; Option)
+        field(50; RegistrationStatus; Option)
         {
             DataClassification = ToBeClassified;
             OptionMembers = Active,Inactive;

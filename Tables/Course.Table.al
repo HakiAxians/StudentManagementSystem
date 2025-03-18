@@ -1,45 +1,45 @@
 table 50102 "CourseTable"
 {
     DataClassification = ToBeClassified;
-    
+
     fields
     {
-        field(1;"CourseID"; Integer)
+        field(10; "CourseID"; Integer)
         {
             DataClassification = ToBeClassified;
-            
+
         }
-        field(2;"CourseName"; Text[50])
+        field(20; "CourseName"; Text[50])
         {
             DataClassification = ToBeClassified;
-            
+
         }
-        field(3;"CourseDescription"; Text[250])
+        field(30; "CourseDescription"; Text[250])
         {
             DataClassification = ToBeClassified;
-            
+
         }
-        field(4;"Credit"; Integer)
+        field(40; "Credit"; Integer)
         {
             DataClassification = ToBeClassified;
-            
+
         }
-        field(5;"CourseStartDate"; Date)
+        field(50; "CourseStartDate"; Date)
         {
             DataClassification = ToBeClassified;
-            
+
         }
-        field(6;"CourseEndDate"; Date)
+        field(60; "CourseEndDate"; Date)
         {
             DataClassification = ToBeClassified;
-            
+
         }
-        field(7;"rate";Integer)
+        field(70; "rate"; Integer)
         {
             DataClassification = ToBeClassified;
-            
+
         }
-        field(8;"Type of Course"; Option)
+        field(80; "Type of Course"; Option)
         {
             DataClassification = ToBeClassified;
             OptionMembers = Online,Site,Hybrid;
@@ -49,7 +49,7 @@ table 50102 "CourseTable"
 
     }
 
-    
+
     keys
     {
         key(CourseID; CourseID)
@@ -57,33 +57,33 @@ table 50102 "CourseTable"
             Clustered = true;
         }
     }
-    
+
     fieldgroups
     {
         // Add changes to field groups here
     }
-    
+
     var
         myInt: Integer;
-    
+
     trigger OnInsert()
     begin
-        
+
     end;
-    
+
     trigger OnModify()
     begin
-        
+
     end;
-    
+
     trigger OnDelete()
     begin
-        
+
     end;
-    
+
     trigger OnRename()
     begin
-        
+
     end;
-    
+
 }
