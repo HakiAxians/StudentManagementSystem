@@ -9,6 +9,10 @@ table 50140 MyTable
             DataClassification = ToBeClassified;
             
         }
+        field(10; MyField1; Blob)
+        {
+            DataClassification = ToBeClassified;
+        }
     }
     
     keys
