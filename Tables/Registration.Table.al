@@ -7,16 +7,19 @@ table 50003 "RegistrationTable"
         field(10; EnrollmentID; Integer)
         {
             DataClassification = ToBeClassified;
+            AutoIncrement = true;
 
         }
         field(20; StudentID; Integer)
         {
             DataClassification = ToBeClassified;
+            TableRelation = "StudentTable".StudentID;
 
         }
         field(30; CourseID; Integer)
         {
             DataClassification = ToBeClassified;
+            TableRelation = "CourseTable".CourseID;
 
         }
         field(40; RegistrationDate; Date)
