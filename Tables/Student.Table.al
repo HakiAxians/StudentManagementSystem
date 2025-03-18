@@ -5,53 +5,53 @@ table  50101 "StudentTable"
     
     fields
     {
-        field(1;"StudentID"; Integer)
+        field(10;"StudentID"; Integer)
         {
             DataClassification = ToBeClassified;
             
         }
-        field(2;"Name"; Text[50])
+        field(20;"Name"; Text[50])
         {
             DataClassification = ToBeClassified;
             
         }
-        field(3;"Surname"; Text[50])
+        field(30;"Surname"; Text[50])
         {
             DataClassification = ToBeClassified;
             
         }
-        field(4;"DateOfBirth"; Date)
+        field(40;"DateOfBirth"; Date)
         {
             DataClassification = ToBeClassified;
             
         }
-        field(5;"Sex"; Option)
+        field(50;"Sex"; Option)
         {
             DataClassification = ToBeClassified;
             OptionMembers = Male,Female;
             OptionCaption = 'M,F';
         }
-        field(6;"Phone No"; Text[20])
+        field(60;"Phone No"; Text[20])
         {
             DataClassification = ToBeClassified;
             
         }
-        field(7;"Email"; Text[80])
+        field(70;"Email"; Text[80])
         {
             DataClassification = ToBeClassified;
             
         }
-        field(8;"Address"; Text[250])
+        field(80;"Address"; Text[250])
         {
             DataClassification = ToBeClassified;
             
         }
-        field(9;"regisDate"; Date)
+        field(90;"Registration Date"; Date)
         {
             DataClassification = ToBeClassified;
             
         }
-        field(10;"Status"; Option)
+        field(100;"Status"; Option)
         {
             DataClassification = ToBeClassified;
             OptionMembers = Active,Inactive;
