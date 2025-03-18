@@ -39,14 +39,10 @@ table 50002 "CourseTable"
             DataClassification = ToBeClassified;
 
         }
-        field(80; "Type of Course"; Option)
+        field(80; "Type of Course"; Enum CoursTypeEnum)
         {
             DataClassification = ToBeClassified;
-            OptionMembers = Online,Site,Hybrid;
-            OptionCaption = 'O,S,H';
-            // Mund te nderhyj me enum
         }
-
     }
 
 

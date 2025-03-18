@@ -25,11 +25,9 @@ table  50000 "StudentTable"
             DataClassification = ToBeClassified;
             
         }
-        field(50;"Sex"; Option)
+        field(50;"Sex"; Enum SexEnum)
         {
             DataClassification = ToBeClassified;
-            OptionMembers = Male,Female;
-            OptionCaption = 'M,F';
         }
         field(60;"Phone No"; Text[20])
         {
@@ -51,11 +49,9 @@ table  50000 "StudentTable"
             DataClassification = ToBeClassified;
             
         }
-        field(100;"Status"; Option)
+        field(100;"Status"; Enum StatusEnum)
         {
             DataClassification = ToBeClassified;
-            OptionMembers = Active,Inactive;
-            OptionCaption = 'A,I';
         }
     }
     
