@@ -8,6 +8,7 @@ table  50000 "StudentTable"
         field(10;"StudentID"; Integer)
         {
             DataClassification = ToBeClassified;
+            AutoIncrement = true;
             
         }
         field(20;"Name"; Text[50])

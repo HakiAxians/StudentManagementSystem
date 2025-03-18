@@ -13,6 +13,7 @@ table 55004 GradeTable
         field(10; StudentId; Integer)
         {
             DataClassification = ToBeClassified;
+            TableRelation = "StudentTable".StudentId;
         }
 
         field(20; CourseId; Integer)
