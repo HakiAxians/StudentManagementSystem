@@ -1,4 +1,4 @@
-page 50005 "Registration Table"
+page 50005 "RegistrationPage"
 {
     PageType = Card;
     ApplicationArea = All;
@@ -9,7 +9,7 @@ page 50005 "Registration Table"
     {
         area(Content)
         {
-            group(Repeater)
+            repeater(Registration)
             {
                 field("Enrollment ID"; Rec.EnrollmentID)
                 {

@@ -26,7 +26,7 @@ table 55004 GradeTable
             DataClassification = ToBeClassified;
         }
 
-        field(40; DateToday; Date)
+        field(40; Date; Date)
         {
             DataClassification = ToBeClassified;
         }
@@ -54,25 +54,25 @@ table 55004 GradeTable
     }
     
     var
-        DateToday: Date;
+        
     trigger OnInsert()
     begin
-        DateToday := System.Today();
+       
     end;
     
     trigger OnModify()
     begin
-        DateToday := System.Today();
+        
     end;
     
     trigger OnDelete()
     begin
-        DateToday := System.Today();
+        
     end;
     
     trigger OnRename()
     begin
-        DateToday := System.Today();
+        
     end;
     
 }
