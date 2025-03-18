@@ -1,4 +1,4 @@
-table 50103 "RegistrationTable"
+table 50003 "RegistrationTable"
 {
     DataClassification = ToBeClassified;
 

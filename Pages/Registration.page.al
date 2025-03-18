@@ -1,4 +1,4 @@
-page 50105 "Registration Table"
+page 50005 "Registration Table"
 {
     PageType = Card;
     ApplicationArea = All;
