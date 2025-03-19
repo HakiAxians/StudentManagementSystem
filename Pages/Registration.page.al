@@ -47,9 +47,11 @@ page 50005 "RegistrationPage"
     {
         area(Processing)
         {
-            action(ActionName)
+            action("Student Enrolled")
+
             {
-                
+                ApplicationArea = All;
+                RunObject =query "StudentEnrollemntQuery";
                 trigger OnAction()
                 begin
                     
