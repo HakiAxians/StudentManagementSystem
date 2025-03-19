@@ -18,6 +18,7 @@ table 55004 GradeTable
 
         field(20; CourseId; Integer)
         {
+            TableRelation = "CourseTable".CourseId;
             DataClassification = ToBeClassified;
         }
 
