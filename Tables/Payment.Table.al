@@ -13,6 +13,7 @@ table 55005 PaymentTable
         field(10; StudentId; Integer)
         {
             DataClassification = ToBeClassified;
+            TableRelation = "StudentTable".StudentId;
         }
         field(20; Amount; Decimal)
         {

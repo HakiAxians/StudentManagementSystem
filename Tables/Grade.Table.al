@@ -1,10 +1,10 @@
 table 55004 GradeTable
 {
     DataClassification = ToBeClassified;
-    
+
     fields
     {
-        field(1;GradeId; Integer)
+        field(1; GradeId; Integer)
         {
             DataClassification = ToBeClassified;
             AutoIncrement = true;
@@ -13,10 +13,12 @@ table 55004 GradeTable
         field(10; StudentId; Integer)
         {
             DataClassification = ToBeClassified;
+            TableRelation = "StudentTable".StudentId;
         }
 
         field(20; CourseId; Integer)
         {
+            TableRelation = "CourseTable".CourseId;
             DataClassification = ToBeClassified;
         }
 
@@ -25,53 +27,58 @@ table 55004 GradeTable
             DataClassification = ToBeClassified;
         }
 
-        field(40; DateToday; Date)
+        field(40; Date; Date)
+        {
+            DataClassification = ToBeClassified;
+        }
+        field(45; Avarage; Decimal)
         {
             DataClassification = ToBeClassified;
         }
     }
-    
+
     keys
     {
-        key(PK; GradeId)
+        key(PK; StudentId)
         {
             Clustered = true;
         }
-        key(FkS;StudentId)
+        key(FkS; GradeId)
         {
             Clustered = false;
         }
-        key(FkC;CourseId)
+        key(FkC; CourseId)
         {
             Clustered = false;
         }
     }
-    
+
     fieldgroups
     {
         // Add changes to field groups here
     }
-    
+
     var
-        DateToday: Date;
+        Avarage: Codeunit StudentAverage;
+
     trigger OnInsert()
     begin
-        DateToday := System.Today();
+        Avarage.Average(Rec);
     end;
-    
+
     trigger OnModify()
     begin
-        DateToday := System.Today();
+        Avarage.Average(Rec);
     end;
-    
+
     trigger OnDelete()
     begin
-        DateToday := System.Today();
+
     end;
-    
+
     trigger OnRename()
     begin
-        DateToday := System.Today();
+
     end;
-    
+
 }

@@ -1,4 +1,4 @@
-page 50005 "Registration Table"
+page 50005 "RegistrationPage"
 {
     PageType = Card;
     ApplicationArea = All;
@@ -9,7 +9,7 @@ page 50005 "Registration Table"
     {
         area(Content)
         {
-            group(Repeater)
+            repeater(Registration)
             {
                 field("Enrollment ID"; Rec.EnrollmentID)
                 {
@@ -47,6 +47,7 @@ page 50005 "Registration Table"
     {
         area(Processing)
         {
+
             action("Save")
             {
                 Caption = 'Save';
@@ -67,10 +68,22 @@ page 50005 "Registration Table"
                 end;
 
             }
-            action("BackToList")
+            action("Student Enrolled")
+
             {
+                ApplicationArea = All;
+                RunObject =query "StudentEnrollemntQuery";
+
+                trigger OnAction()
+                begin
+                    PAGE.Run(PAGE::"Registration Table2");
+                end;
+            }
+            action("BackToList")
+
+            {
+                ApplicationArea = All;
                 Caption = 'Back to List';
-                Image = Camera;
                 trigger OnAction()
                 begin
                     PAGE.Run(PAGE::"Registration Table2");

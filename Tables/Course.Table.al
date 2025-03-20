@@ -7,6 +7,7 @@ table 50002 "CourseTable"
         field(10; "CourseID"; Integer)
         {
             DataClassification = ToBeClassified;
+            AutoIncrement = true;
 
         }
         field(20; "CourseName"; Text[50])
@@ -51,6 +52,10 @@ table 50002 "CourseTable"
         key(CourseID; CourseID)
         {
             Clustered = true;
+        }
+        key(CourseName; CourseName)
+        {
+            Clustered = false;
         }
     }
 

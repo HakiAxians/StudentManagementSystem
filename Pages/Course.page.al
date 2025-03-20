@@ -1,4 +1,4 @@
-page 50006 "CourseTable"
+page 50006 "CoursePage"
 {
     PageType = Card;
     ApplicationArea = All;
@@ -9,7 +9,7 @@ page 50006 "CourseTable"
     {
         area(Content)
         {
-            group(Repeater)
+            repeater(Course)
             {
                 field("CourseID"; Rec."CourseID")
                 {

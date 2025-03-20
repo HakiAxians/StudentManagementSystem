@@ -7,16 +7,19 @@ table 50003 "RegistrationTable"
         field(10; EnrollmentID; Integer)
         {
             DataClassification = ToBeClassified;
+            AutoIncrement = true;
 
         }
         field(20; StudentID; Integer)
         {
             DataClassification = ToBeClassified;
+            TableRelation = "StudentTable".StudentID;
 
         }
         field(30; CourseID; Integer)
         {
             DataClassification = ToBeClassified;
+            TableRelation = "CourseTable".CourseID;
 
         }
         field(40; RegistrationDate; Date)
@@ -24,11 +27,9 @@ table 50003 "RegistrationTable"
             DataClassification = ToBeClassified;
 
         }
-        field(50; RegistrationStatus; Option)
+        field(50; RegistrationStatus; Enum StatusEnum)
         {
             DataClassification = ToBeClassified;
-            OptionMembers = Active,Inactive;
-            OptionCaption = 'A,I';
         }
     }
 

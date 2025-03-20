@@ -19,12 +19,12 @@ page 55009 GradePage
                 field(StudentId; Rec.StudentId)
                 {
                     ApplicationArea = All;
-                    Editable = false;
+                    Visible = True;
                 }
                 field(CourseId; Rec.CourseId)
                 {
                     ApplicationArea = All;
-                    Editable = false;
+                    Visible = True;
                 }
                 field(Grade; Rec.Grade)
                 {
@@ -32,7 +32,7 @@ page 55009 GradePage
                     MinValue = 5;
                     MaxValue = 10;
                 }
-                field("Grade register Date"; Rec."DateToday")
+                field("Grade register Date"; Rec."Date")
                 {
                     ApplicationArea = All;
                 }
@@ -44,12 +44,14 @@ page 55009 GradePage
     {
         area(Processing)
         {
-            action(ActionName)
+            action("Grade Distribution")
             {
-
+                ApplicationArea = All;
+                RunObject = Query "GradeDistrubutionQuery";
                 trigger OnAction()
-                begin
 
+                begin
+                    
                 end;
             }
         }
