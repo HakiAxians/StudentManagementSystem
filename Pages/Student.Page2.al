@@ -67,7 +67,7 @@ page 50010 "StudentTable2"
 
     actions
     {
-        area(Navigation)
+        area(Processing)
         {
             group("Student Actions")
             {
@@ -81,10 +81,10 @@ page 50010 "StudentTable2"
                     begin
                         PAGE.RUN(PAGE::"StudentPage");
                     end;
-                        
-                
-                        
-                    
+
+
+
+
 
                 }
                 action("EditStudent")
@@ -124,43 +124,62 @@ page 50010 "StudentTable2"
                             Rec.SETRANGE("Email", 'A*');
                             Rec.SETRANGE("Address", 'A*');
                             Rec.SETRANGE("Phone No", 'A*');
-                        Rec.SETFILTER("Status", 'A*');
-                    end;
+                            Rec.SETFILTER("Status", 'A*');
+                        end;
                     }
                 }
             }
         }
-        area(Processing)
+        area(Navigation)
         {
-            group("Export/Print")
+
+
+            action("ExportData")
             {
-                action("ExportData")
-                {
-                    Caption = 'Export Data';
-                    Image = Export;
-                    ApplicationArea = All;
-                    trigger OnAction()
-                    begin
-                        MESSAGE('Nashta bahet ma vone');
-                    end;
+                Caption = 'Export Data';
+                Image = Export;
+                ApplicationArea = All;
+                trigger OnAction()
+                begin
+                    MESSAGE('Nashta bahet ma vone');
+                end;
 
-                }
-                action("PrintList")
-                {
-                    Caption = 'Print List';
-                    Image = Print;
-                    ApplicationArea = All;
-                    trigger OnAction()
-                    begin
-                        MESSAGE('Ndoshta behet me vone nuk idihet');
-                    end;
-
-
-                }
             }
+            action("PrintList")
+            {
+                Caption = 'Print List';
+                Image = Print;
+                ApplicationArea = All;
+                trigger OnAction()
+                begin
+                    MESSAGE('Ndoshta behet me vone nuk idihet');
+                end;
+
+
+            }
+            action("Refresh")
+            {
+                Caption = 'Refresh';
+                Image = Refresh;
+                ApplicationArea = All;
+                trigger OnAction()
+                begin
+                    CurrPage.UPDATE(false);
+                end;
+            }
+            action("ScheduleMeeting")
+            {
+                Caption = 'Schedule Meeting';
+                Image = Calendar;
+                ApplicationArea = All;
+                trigger OnAction()
+                begin
+                    PAGE.Run(PAGE::"Meeting Scheduler");
+                end;
+            }
+
+
+
         }
-
-
-
     }
 }
