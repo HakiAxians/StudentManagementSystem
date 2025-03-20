@@ -39,17 +39,9 @@ table 55004 GradeTable
 
     keys
     {
-        key(PK; StudentId)
+        key(PK; StudentId, CourseId, GradeId)
         {
             Clustered = true;
-        }
-        key(FkS; GradeId)
-        {
-            Clustered = false;
-        }
-        key(FkC; CourseId)
-        {
-            Clustered = false;
         }
     }
 

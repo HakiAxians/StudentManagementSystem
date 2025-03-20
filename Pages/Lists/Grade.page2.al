@@ -32,7 +32,7 @@ page 54321 "GradePage2"
                     MinValue = 5;
                     MaxValue = 10;
                 }
-                field("Grade register Date"; Rec."DateToday")
+                field("Grade register Date"; Rec."Date")
                 {
                     ApplicationArea = All;
                 }

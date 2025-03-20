@@ -95,7 +95,7 @@ page 50009 "Registration Table2"
                 Image = Camera;
                 trigger OnAction()
                 begin
-                    PAGE.Run(PAGE::"Registration Table");
+                    PAGE.Run(PAGE::"RegistrationPage");
                 end;
             }
         }
