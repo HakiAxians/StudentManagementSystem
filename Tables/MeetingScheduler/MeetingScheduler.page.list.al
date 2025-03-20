@@ -45,7 +45,7 @@ page 50151 "Meeting Scheduler"
 
     actions
     {
-        area(Navigation)
+        area(Processing)
         {
             group("Meeting Actions")
             {
@@ -84,9 +84,30 @@ page 50151 "Meeting Scheduler"
                     Image = Refresh;
                     trigger OnAction()
                     begin
-                        CurrPage.UPDATE(false);
+                        CurrPage.Update(false);
                     end;
                 }
+            }
+        }
+        area("Navigation")
+        {
+            action("GoToStudentList")
+            {
+                Caption = 'Student List';
+                Image = User;
+                trigger OnAction()
+                begin
+                    PAGE.RUN(PAGE::"StudentTable2");
+                end;
+            }
+            action("GoToMeetingCalendar")
+            {
+                Caption = 'Meeting Calendar';
+                Image = Calendar;
+                trigger OnAction()
+                begin
+                    PAGE.RUN(PAGE::"Meeting Calendar");
+                end;
             }
         }
     }

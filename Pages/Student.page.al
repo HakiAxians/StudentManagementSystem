@@ -66,7 +66,9 @@ page 50004 "StudentPage"
     }
 
     actions
+    
     {
+        
         area(Processing)
         {
             group("Record Actions")
@@ -126,9 +128,19 @@ page 50004 "StudentPage"
                         MESSAGE('Eshte vetem nje test');
                     end;
                 }
+
+
             }
 
-
+action("BackToList")
+                {
+                    Caption = 'Back to List';
+                    Image = Return;
+                    trigger OnAction()
+                    begin
+                        PAGE.RUN(PAGE::"StudentTable2", Rec);
+                    end;
+                }
 
 
         }
