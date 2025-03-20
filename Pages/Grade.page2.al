@@ -1,60 +1,60 @@
-page 55011 "ProfessorPage"
+page 54321 "GradePage2"
 {
-    PageType = Card;
+    PageType = List;
     ApplicationArea = All;
     UsageCategory = Administration;
-    SourceTable = ProfessorTable;
-    
+    SourceTable = GradeTable;
+
     layout
     {
         area(Content)
         {
-            repeater(Professor)
+            repeater("Notat")
             {
-                field(ProfessorId; Rec.ProfessorId)
+                field(GradeId; Rec.GradeId)
                 {
                     ApplicationArea = All;
                     Visible = false;
                 }
-                field(Name; Rec.Name)
+                field(StudentId; Rec.StudentId)
                 {
                     ApplicationArea = All;
+                    Editable = false;
                 }
-                field(SurName; Rec.SurName)
+                field(CourseId; Rec.CourseId)
                 {
                     ApplicationArea = All;
+                    Editable = false;
                 }
-                field("Field of Specialization"; Rec."Field of Specialization")
+                field(Grade; Rec.Grade)
                 {
                     ApplicationArea = All;
+                    MinValue = 5;
+                    MaxValue = 10;
                 }
-                field(Email; Rec.Email)
-                {
-                    ApplicationArea = All;
-                }
-                field("Employment Date"; Rec."Employment Date")
+                field("Grade register Date"; Rec."DateToday")
                 {
                     ApplicationArea = All;
                 }
             }
         }
     }
-    
+
     actions
     {
         area(Processing)
         {
             action(ActionName)
             {
-                
+
                 trigger OnAction()
                 begin
-                    
+
                 end;
             }
         }
     }
-    
+
     var
         myInt: Integer;
 }

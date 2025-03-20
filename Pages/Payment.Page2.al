@@ -1,38 +1,36 @@
-page 55011 "ProfessorPage"
+page 54000 "PaymentPage2"
 {
-    PageType = Card;
+    PageType = List;
     ApplicationArea = All;
     UsageCategory = Administration;
-    SourceTable = ProfessorTable;
+    SourceTable = PaymentTable;
     
     layout
     {
         area(Content)
         {
-            repeater(Professor)
+            repeater("Payment")
             {
-                field(ProfessorId; Rec.ProfessorId)
+                field(PaymentId; Rec.PaymentId)
                 {
                     ApplicationArea = All;
                     Visible = false;
                 }
-                field(Name; Rec.Name)
+                field(StudentId; Rec.StudentId)
+                {
+                    ApplicationArea = All;
+                    Visible = false;
+                }
+                field(Amount; Rec.Amount)
+                {
+                    ApplicationArea = All;
+                    MinValue = 0.00;
+                }
+                field(PaymentDate; Rec.PaymentDate)
                 {
                     ApplicationArea = All;
                 }
-                field(SurName; Rec.SurName)
-                {
-                    ApplicationArea = All;
-                }
-                field("Field of Specialization"; Rec."Field of Specialization")
-                {
-                    ApplicationArea = All;
-                }
-                field(Email; Rec.Email)
-                {
-                    ApplicationArea = All;
-                }
-                field("Employment Date"; Rec."Employment Date")
+                field(PaymentMethod; Rec.PaymentMethod)
                 {
                     ApplicationArea = All;
                 }

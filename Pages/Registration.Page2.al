@@ -1,6 +1,6 @@
-page 50005 "RegistrationPage"
+page 50009 "Registration Table2"
 {
-    PageType = Card;
+    PageType = List;
     ApplicationArea = All;
     UsageCategory = Administration;
     SourceTable = RegistrationTable;
@@ -9,7 +9,7 @@ page 50005 "RegistrationPage"
     {
         area(Content)
         {
-            repeater(Registration)
+            group(Repeater)
             {
                 field("Enrollment ID"; Rec.EnrollmentID)
                 {
@@ -47,10 +47,21 @@ page 50005 "RegistrationPage"
     {
         area(Processing)
         {
+            action("Newregistration")
 
-            action("Save")
             {
-                Caption = 'Save';
+                Caption = 'New Registration';
+                Image = Save;
+                trigger OnAction()
+                begin
+                    CurrPage.UPDATE(false);
+                end;
+
+
+            }
+            action("Editregistration")
+            {
+                Caption = 'Edit Registration';
                 Image = Save;
                 trigger OnAction()
                 begin
@@ -58,36 +69,56 @@ page 50005 "RegistrationPage"
                 end;
 
             }
-            action("Cancel")
+            action("Deleteregistration")
             {
-                Caption = 'Cancel';
-                Image = Cancel;
+                Caption = 'Delete Registration';
+                Image = Delete;
                 trigger OnAction()
                 begin
-                    CurrPage.Close();
+                    CurrPage.UPDATE(false);
                 end;
 
             }
-            action("Student Enrolled")
-
+            action("refresh")
             {
-                ApplicationArea = All;
-                RunObject =query "StudentEnrollemntQuery";
-
+                Caption = 'Refresh';
+                Image = Refresh;
                 trigger OnAction()
                 begin
-                    PAGE.Run(PAGE::"Registration Table2");
+                    CurrPage.UPDATE(false);
+                end;
+
+            }
+            action("BackToCard")
+            {
+                Caption = 'Back to Card';
+                Image = Camera;
+                trigger OnAction()
+                begin
+                    PAGE.Run(PAGE::"Registration Table");
                 end;
             }
-            action("BackToList")
-
+        }
+        area(Navigation)
+        {
+            action("GoToStudentList")
             {
-                ApplicationArea = All;
-                Caption = 'Back to List';
+                Caption = 'Go to Student List';
+                Image = Camera;
                 trigger OnAction()
                 begin
-                    PAGE.Run(PAGE::"Registration Table2");
+                    PAGE.Run(PAGE::"StudentTable2");
                 end;
+            }
+            action("GoToCourseList")
+            {
+                Caption = 'Go to Course List';
+                Image = Camera;
+                trigger OnAction()
+                begin
+                    PAGE.Run(PAGE::"CourseTable2");
+                end;
+
             }
         }
     }

@@ -1,10 +1,10 @@
-page 55011 "ProfessorPage"
+page 55012 "ProfessorPage2"
 {
-    PageType = Card;
+    PageType = list;
     ApplicationArea = All;
     UsageCategory = Administration;
     SourceTable = ProfessorTable;
-    
+
     layout
     {
         area(Content)
@@ -39,22 +39,22 @@ page 55011 "ProfessorPage"
             }
         }
     }
-    
+
     actions
     {
         area(Processing)
         {
             action(ActionName)
             {
-                
+
                 trigger OnAction()
                 begin
-                    
+
                 end;
             }
         }
     }
-    
+
     var
         myInt: Integer;
 }
