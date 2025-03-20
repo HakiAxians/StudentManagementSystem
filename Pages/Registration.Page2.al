@@ -1,6 +1,6 @@
-page 50005 "Registration Table"
+page 50009 "Registration Table2"
 {
-    PageType = Card;
+    PageType = List;
     ApplicationArea = All;
     UsageCategory = Administration;
     SourceTable = RegistrationTable;
@@ -47,9 +47,21 @@ page 50005 "Registration Table"
     {
         area(Processing)
         {
-            action("Save")
+            action("Newregistration")
+
             {
-                Caption = 'Save';
+                Caption = 'New Registration';
+                Image = Save;
+                trigger OnAction()
+                begin
+                    CurrPage.UPDATE(false);
+                end;
+
+
+            }
+            action("Editregistration")
+            {
+                Caption = 'Edit Registration';
                 Image = Save;
                 trigger OnAction()
                 begin
@@ -57,24 +69,56 @@ page 50005 "Registration Table"
                 end;
 
             }
-            action("Cancel")
+            action("Deleteregistration")
             {
-                Caption = 'Cancel';
-                Image = Cancel;
+                Caption = 'Delete Registration';
+                Image = Delete;
                 trigger OnAction()
                 begin
-                    CurrPage.Close();
+                    CurrPage.UPDATE(false);
                 end;
 
             }
-            action("BackToList")
+            action("refresh")
             {
-                Caption = 'Back to List';
+                Caption = 'Refresh';
+                Image = Refresh;
+                trigger OnAction()
+                begin
+                    CurrPage.UPDATE(false);
+                end;
+
+            }
+            action("BackToCard")
+            {
+                Caption = 'Back to Card';
                 Image = Camera;
                 trigger OnAction()
                 begin
-                    PAGE.Run(PAGE::"Registration Table2");
+                    PAGE.Run(PAGE::"Registration Table");
                 end;
+            }
+        }
+        area(Navigation)
+        {
+            action("GoToStudentList")
+            {
+                Caption = 'Go to Student List';
+                Image = Camera;
+                trigger OnAction()
+                begin
+                    PAGE.Run(PAGE::"StudentTable2");
+                end;
+            }
+            action("GoToCourseList")
+            {
+                Caption = 'Go to Course List';
+                Image = Camera;
+                trigger OnAction()
+                begin
+                    PAGE.Run(PAGE::"CourseTable2");
+                end;
+
             }
         }
     }
