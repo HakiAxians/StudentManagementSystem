@@ -53,6 +53,10 @@ table 50002 "CourseTable"
         {
             Clustered = true;
         }
+        key(CourseName; CourseName)
+        {
+            Clustered = false;
+        }
     }
 
     fieldgroups

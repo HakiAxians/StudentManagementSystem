@@ -4,6 +4,7 @@ page 50004 "StudentPage"
     ApplicationArea = All;
     UsageCategory = Administration;
     SourceTable = StudentTable;
+    
 
     layout
     {
@@ -61,6 +62,11 @@ page 50004 "StudentPage"
                 {
                     ApplicationArea = All;
                 }
+                field("Average"; Rec.Average)
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'The average grade of the student';
+                }
             }
         }
     }
@@ -80,7 +86,7 @@ page 50004 "StudentPage"
                     Image = Save;
                     trigger OnAction()
                     begin
-                        Rec.Modify(true);
+                        PAGE.RUN(PAGE::"GradePage", Rec);
                     end;
                 }
                 action("Cancel")
@@ -100,10 +106,12 @@ page 50004 "StudentPage"
                 Image = ShowChart;
                 ApplicationArea = All;
                 trigger OnAction()
+                var
+                    GradePageRec: Record GradeTable;
                 begin
-                    MESSAGE('Behet me vone');
+                    GradePageRec.SetRange(StudentId, Rec.StudentID);
+                    PAGE.RUNMODAL(PAGE::"GradePage", GradePageRec);
                 end;
-
             }
             group("Extras")
             {

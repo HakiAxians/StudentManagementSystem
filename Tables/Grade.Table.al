@@ -1,10 +1,10 @@
 table 55004 GradeTable
 {
     DataClassification = ToBeClassified;
-    
+
     fields
     {
-        field(1;GradeId; Integer)
+        field(1; GradeId; Integer)
         {
             DataClassification = ToBeClassified;
             AutoIncrement = true;
@@ -31,49 +31,54 @@ table 55004 GradeTable
         {
             DataClassification = ToBeClassified;
         }
+        field(45; Avarage; Decimal)
+        {
+            DataClassification = ToBeClassified;
+        }
     }
-    
+
     keys
     {
-        key(PK; GradeId)
+        key(PK; StudentId)
         {
             Clustered = true;
         }
-        key(FkS;StudentId)
+        key(FkS; GradeId)
         {
             Clustered = false;
         }
-        key(FkC;CourseId)
+        key(FkC; CourseId)
         {
             Clustered = false;
         }
     }
-    
+
     fieldgroups
     {
         // Add changes to field groups here
     }
-    
+
     var
-        
+        Avarage: Codeunit StudentAverage;
+
     trigger OnInsert()
     begin
-       
+        Avarage.Average(Rec);
     end;
-    
+
     trigger OnModify()
     begin
-        
+        Avarage.Average(Rec);
     end;
-    
+
     trigger OnDelete()
     begin
-        
+
     end;
-    
+
     trigger OnRename()
     begin
-        
+
     end;
-    
+
 }
