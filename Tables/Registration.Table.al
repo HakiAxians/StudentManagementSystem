@@ -27,11 +27,9 @@ table 50003 "RegistrationTable"
             DataClassification = ToBeClassified;
 
         }
-        field(50; RegistrationStatus; Option)
+        field(50; RegistrationStatus; Enum StatusEnum)
         {
             DataClassification = ToBeClassified;
-            OptionMembers = Active,Inactive;
-            OptionCaption = 'A,I';
         }
     }
 
