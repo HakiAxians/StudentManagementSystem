@@ -54,6 +54,10 @@ table  50000 "StudentTable"
         {
             DataClassification = ToBeClassified;
         }
+        field(110;Average; Decimal)
+        {
+            
+        }
     }
     
     keys
@@ -70,7 +74,7 @@ table  50000 "StudentTable"
     }
     
     var
-        myInt: Integer;
+        Avarage: Codeunit StudentAverage;
     
     trigger OnInsert()
     begin
