@@ -1,6 +1,6 @@
-page 50004 "StudentPage"
+page 50010 "StudentTable2"
 {
-    PageType = Card;
+    PageType = List;
     ApplicationArea = All;
     UsageCategory = Administration;
     SourceTable = StudentTable;
@@ -9,7 +9,7 @@ page 50004 "StudentPage"
     {
         area(Content)
         {
-            repeater(Student)
+            group(Repeater)
             {
                 field("Student ID"; Rec.StudentID)
                 {
@@ -67,70 +67,100 @@ page 50004 "StudentPage"
 
     actions
     {
+        area(Navigation)
+        {
+            group("Student Actions")
+            {
+                action("NewStudent")
+                {
+                    Caption = 'New Student';
+                    ApplicationArea = All;
+                    Image = New;
+                    RunObject = Page StudentPage;
+                    trigger OnAction()
+                    begin
+                        PAGE.RUN(PAGE::"StudentPage");
+                    end;
+                        
+                
+                        
+                    
+
+                }
+                action("EditStudent")
+                {
+                    Caption = 'Edit Student';
+                    Image = Edit;
+                    RunObject = Page StudentPage;
+                    ApplicationArea = All;
+                    trigger OnAction()
+                    begin
+                        PAGE.RUN(PAGE::"StudentPage");
+                    end;
+
+                }
+                action("DeleteStudent")
+                {
+                    Caption = 'Delete Student';
+                    ApplicationArea = All;
+                    Image = Delete;
+                    trigger OnAction()
+                    begin
+                        Rec.DELETE;
+                    end;
+
+
+                }
+                group("Search")
+                {
+                    action("AdvancedSearch")
+                    {
+                        Caption = 'Advanced Search';
+                        ApplicationArea = All;
+                        trigger OnAction()
+                        begin
+                            Rec.SETRANGE("Name", 'A*');
+                            Rec.SETRANGE("Surname", 'A*');
+                            Rec.SETRANGE("Email", 'A*');
+                            Rec.SETRANGE("Address", 'A*');
+                            Rec.SETRANGE("Phone No", 'A*');
+                        Rec.SETFILTER("Status", 'A*');
+                    end;
+                    }
+                }
+            }
+        }
         area(Processing)
         {
-            group("Record Actions")
+            group("Export/Print")
             {
-                action("Save")
+                action("ExportData")
                 {
+                    Caption = 'Export Data';
+                    Image = Export;
                     ApplicationArea = All;
-                    Caption = 'Save';
-                    Image = Save;
                     trigger OnAction()
                     begin
-                        Rec.Modify(true);
+                        MESSAGE('Nashta bahet ma vone');
                     end;
+
                 }
-                action("Cancel")
+                action("PrintList")
                 {
-                    Caption = 'Cancel';
-                    Image = Cancel;
+                    Caption = 'Print List';
+                    Image = Print;
                     ApplicationArea = All;
                     trigger OnAction()
                     begin
-                        CurrPage.Close();
+                        MESSAGE('Ndoshta behet me vone nuk idihet');
                     end;
+
+
                 }
             }
-            action("ViewGrades")
-            {
-                Caption = 'View Grades';
-                Image = ShowChart;
-                ApplicationArea = All;
-                trigger OnAction()
-                begin
-                    MESSAGE('Behet me vone');
-                end;
-
-            }
-            group("Extras")
-            {
-                action("Upload Documents")
-                {
-                    Caption = 'Upload Documents';
-                    Image = Document;
-                    ApplicationArea = All;
-                    trigger OnAction()
-                    begin
-                        MESSAGE('Me shume mundesi me vone');
-                    end;
-
-                }
-                action("Send a Message")
-                {
-                    Caption = 'Send a Message';
-                    Image = Email;
-                    ApplicationArea = All;
-                    trigger OnAction()
-                    begin
-                        MESSAGE('Eshte vetem nje test');
-                    end;
-                }
-            }
-
-
-
-
         }
+
+
+
     }
 }
