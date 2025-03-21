@@ -47,6 +47,16 @@ page 50151 "Meeting Scheduler"
     {
         area(Processing)
         {
+            action("GoToCard")
+            {
+                Caption = 'Meeting Card';
+                Image = Card;
+                RunObject = Page "Meeting Card";
+                trigger OnAction()
+                begin
+                    PAGE.RUN(PAGE::"Meeting Card");
+                end;
+            }
             group("Meeting Actions")
             {
                 action("NewMeeting")
