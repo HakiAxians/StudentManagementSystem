@@ -4,7 +4,7 @@ page 55011 "ProfessorPage"
     ApplicationArea = All;
     UsageCategory = Administration;
     SourceTable = ProfessorTable;
-    
+
     layout
     {
         area(Content)
@@ -39,22 +39,70 @@ page 55011 "ProfessorPage"
             }
         }
     }
-    
+
     actions
     {
         area(Processing)
         {
-            action(ActionName)
+            action("Save")
             {
-                
+                Caption = 'Save';
+                Image = Save;
                 trigger OnAction()
                 begin
-                    
+                    CurrPage.Update(false);
+                end;
+            }
+            action("cancel")
+            {
+                Caption = 'Cancel';
+                Image = Cancel;
+                trigger OnAction()
+                begin
+                    CurrPage.Close();
+                end;
+            }
+            action("Delete")
+            {
+                Caption = 'Delete';
+                Image = Delete;
+                trigger OnAction()
+                begin
+                    Rec.Delete();
+                    CurrPage.Close();
+                end;
+            }
+            action("Edit")
+            {
+                Caption = 'Edit';
+                Image = Edit;
+                trigger OnAction()
+                begin
+                    Rec.Modify(true);
+                end;
+            }
+            action("Refresh")
+            {
+                Caption = 'Refresh';
+                Image = Refresh;
+                trigger OnAction()
+                begin
+                    CurrPage.Update(true);
+                end;
+            }
+            action("GoToList")
+            {
+                Caption = 'Go to List';
+                Image = List;
+                trigger OnAction()
+                begin
+                    Page.Run(Page::ProfessorPage2);
+
                 end;
             }
         }
     }
-    
-    var
-        myInt: Integer;
+
+
+
 }
