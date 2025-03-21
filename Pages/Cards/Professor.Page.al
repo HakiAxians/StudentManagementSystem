@@ -44,6 +44,21 @@ page 55011 "ProfessorPage"
     {
         area(Processing)
         {
+
+            action("PrintStudentReport")
+            {
+                Caption = 'Print Student Report';
+                Image = Print;
+                ApplicationArea = All;
+                
+                trigger OnAction()
+                var
+                    ProfessorReport: Report "ProfessorReport";
+                begin
+                ProfessorReport.SetTableView(Rec);
+                ProfessorReport.RunModal();
+                end;   
+            }
             action("Save")
             {
                 Caption = 'Save';
@@ -97,7 +112,6 @@ page 55011 "ProfessorPage"
                 trigger OnAction()
                 begin
                     Page.Run(Page::ProfessorPage2);
-
                 end;
             }
         }

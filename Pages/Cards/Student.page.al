@@ -115,17 +115,19 @@ page 50004 "StudentPage"
             }
             group("Extras")
             {
-                action("Upload Documents")
-                {
-                    Caption = 'Upload Documents';
-                    Image = Document;
-                    ApplicationArea = All;
-                    trigger OnAction()
-                    begin
-                        MESSAGE('Me shume mundesi me vone');
-                    end;
-
-                }
+                action("PrintStudentReport")
+            {
+                Caption = 'Print Student Report';
+                Image = Print;
+                ApplicationArea = All;
+                trigger OnAction()
+                var
+                    StudentReport: Report "StudentReport";
+                begin
+                    StudentReport.SetTableView(Rec);
+                    StudentReport.RunModal();
+                end;
+            }
                 action("Send a Message")
                 {
                     Caption = 'Send a Message';
