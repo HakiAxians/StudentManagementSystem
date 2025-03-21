@@ -4,12 +4,12 @@ page 54000 "PaymentPage2"
     ApplicationArea = All;
     UsageCategory = Administration;
     SourceTable = PaymentTable;
-    
+
     layout
     {
         area(Content)
         {
-            repeater("Payment")
+            group("Payment")
             {
                 field(PaymentId; Rec.PaymentId)
                 {
@@ -37,22 +37,22 @@ page 54000 "PaymentPage2"
             }
         }
     }
-    
+
     actions
     {
         area(Processing)
         {
             action(ActionName)
             {
-                
+
                 trigger OnAction()
                 begin
-                    
+
                 end;
             }
         }
     }
-    
+
     var
         myInt: Integer;
 }

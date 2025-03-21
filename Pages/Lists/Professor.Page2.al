@@ -9,7 +9,7 @@ page 55012 "ProfessorPage2"
     {
         area(Content)
         {
-            repeater(Professor)
+            group(Professor)
             {
                 field(ProfessorId; Rec.ProfessorId)
                 {
@@ -44,17 +44,75 @@ page 55012 "ProfessorPage2"
     {
         area(Processing)
         {
-            action(ActionName)
+            action("NewProfessor")
             {
-
+                ApplicationArea = All;
+                Caption = 'New Professor';
+                RunObject = Page "ProfessorPage";
                 trigger OnAction()
                 begin
+                    PAGE.RUN(Page::"ProfessorPage");
+                end;
 
+            }
+            action("EditProfessor")
+            {
+                ApplicationArea = All;
+                Caption = 'Edit Professor';
+                RunObject = Page "ProfessorPage";
+                trigger OnAction()
+                begin
+                    PAGE.RUN(Page::"ProfessorPage");
+                end;
+            }
+            action("DeleteProfessor")
+            {
+                ApplicationArea = All;
+                Caption = 'Delete Professor';
+                RunObject = Page "ProfessorPage";
+                trigger OnAction()
+                begin
+                    Message('Kjo vjen me pas si pasoj e mosintegrimit hehe')
+                end;
+            }
+            action("Refreshlist")
+            {
+                ApplicationArea = All;
+                Caption = 'Refresh';
+                trigger OnAction()
+                begin
+                    CurrPage.UPDATE(true);
+                end;
+            }
+        }
+        area(Navigation)
+        {
+            group("Contact")
+            {
+                action("SendEmail")
+                {
+                    ApplicationArea = All;
+                    Caption = 'Send Email';
+                    Image = Email;
+                    trigger OnAction()
+                    begin
+                        MESSAGE('Calm before the storm');
+                    end;
+                }
+            }
+            action("GoToCard")
+            {
+                ApplicationArea = All;
+                Caption = 'Go To Card';
+                Image = Card;
+                trigger OnAction()
+                begin
+                    PAGE.RUNMODAL(Page::"ProfessorPage");
                 end;
             }
         }
     }
 
-    var
-        myInt: Integer;
+
+
 }
