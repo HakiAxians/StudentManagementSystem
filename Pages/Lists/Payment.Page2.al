@@ -42,17 +42,56 @@ page 54000 "PaymentPage2"
     {
         area(Processing)
         {
-            action(ActionName)
+            group("Payment Actions")
             {
+                action("Newpayment")
+                {
+                    ApplicationArea = All;
+                    Caption = 'New Payment';
+                    Image = New;
+                    RunObject= page  "PaymentPage";
+                    trigger OnAction()
+                    begin
+                        PAGE.RUN(PAGE::"PaymentPage");
+                    end;
+                }
+                action("Editpayment")
+                {
+                    ApplicationArea = All;
+                    Caption = 'Edit Payment';
+                    Image = Edit;
+                    RunObject= page  "PaymentPage";
+                    trigger OnAction()
+                    begin
+                        PAGE.RUN(PAGE::"PaymentPage");
+                    end;
+                }
+                action("Deletepayment")
+                {
+                    ApplicationArea = All;
+                    Caption = 'Delete Payment';
+                    Image = Delete;
+                    RunObject= page  "PaymentPage";
+                    trigger OnAction()
+                    begin
+                        PAGE.RUN(PAGE::"PaymentPage");
+                    end;
+                }
 
+            }
+            action("Refresh")
+            {
+                ApplicationArea = All;
+                Caption = 'Refresh';
+                Image = Refresh;
                 trigger OnAction()
                 begin
-
+                    CurrPage.UPDATE(false);
                 end;
             }
         }
     }
 
-    var
-        myInt: Integer;
+    
+
 }
