@@ -50,6 +50,16 @@ page 50152 "Meeting Card"
     {
         area(Processing)
         {
+            action("GoToMeetingList")
+            {
+                Caption = 'Meeting List';
+                Image = List;
+                RunObject = Page "Meeting Scheduler";
+                trigger OnAction()
+                begin
+                    PAGE.RUN(PAGE::"Meeting Scheduler");
+                end;
+            }
             group("Record Actions")
             {
                 action("Save")

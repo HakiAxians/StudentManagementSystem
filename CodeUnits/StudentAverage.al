@@ -12,7 +12,7 @@ codeunit 55014 StudentAverage
 
         if GradeRec.FindSet() then begin
             repeat
-                Count := Count + 1;
+                Count += 1;
                 Sum := Sum + GradeRec.Grade;
             until GradeRec.Next() = 0;
         end;

@@ -9,7 +9,7 @@ page 54321 "GradePage2"
     {
         area(Content)
         {
-            repeater("Notat")
+            group("Notat")
             {
                 field(GradeId; Rec.GradeId)
                 {
