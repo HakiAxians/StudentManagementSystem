@@ -7,15 +7,14 @@ codeunit 55014 StudentAverage
         Sum: Decimal;
         Stud: Record StudentTable;
     begin
-        Count := 3;
+        Count := 0;
         Sum := 0;
+
         if GradeRec.FindSet() then begin
-            if (GradeRec.StudentId = Stud.StudentId) then 
-            begin
             repeat
+                Count := Count + 1;
                 Sum := Sum + GradeRec.Grade;
             until GradeRec.Next() = 0;
-            end;
         end;
 
         if Count>0 then

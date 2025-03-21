@@ -44,12 +44,17 @@ page 55011 "ProfessorPage"
     {
         area(Processing)
         {
-            action(ActionName)
+            action("PrintStudentReport")
             {
-                
+                Caption = 'Print Student Report';
+                Image = Print;
+                ApplicationArea = All;
                 trigger OnAction()
+                var
+                    ProfessorReport: Report "ProfessorReport";
                 begin
-                    
+                    ProfessorReport.SetTableView(Rec);
+                    ProfessorReport.RunModal();
                 end;
             }
         }
