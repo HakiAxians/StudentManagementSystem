@@ -24,31 +24,6 @@
       <rd:DataSourceID>cb8965cd-2195-4b63-894b-8e4c2a977dff</rd:DataSourceID>
     </DataSource>
   </DataSources>
-  <DataSets>
-    <DataSet Name="DataSet_Result">
-      <Query>
-        <DataSourceName>DataSource</DataSourceName>
-        <CommandText />
-      </Query>
-      <Fields>
-        <Field Name="CourseName">
-          <DataField>CourseName</DataField>
-        </Field>
-        <Field Name="CourseDescription">
-          <DataField>CourseDescription</DataField>
-        </Field>
-        <Field Name="Credit">
-          <DataField>Credit</DataField>
-        </Field>
-        <Field Name="CourseStartDate">
-          <DataField>CourseStartDate</DataField>
-        </Field>
-        <Field Name="CourseEndDate">
-          <DataField>CourseEndDate</DataField>
-        </Field>
-      </Fields>
-    </DataSet>
-  </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
@@ -446,12 +421,6 @@
       </Page>
     </ReportSection>
   </ReportSections>
-  <ReportParametersLayout>
-    <GridLayoutDefinition>
-      <NumberOfColumns>4</NumberOfColumns>
-      <NumberOfRows>2</NumberOfRows>
-    </GridLayoutDefinition>
-  </ReportParametersLayout>
   <Code>Public Function BlankZero(ByVal Value As Decimal)
     if Value = 0 then
         Return ""
@@ -489,4 +458,29 @@ End Function
 </Code>
   <Language>=User!Language</Language>
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="CourseName">
+          <DataField>CourseName</DataField>
+        </Field>
+        <Field Name="CourseDescription">
+          <DataField>CourseDescription</DataField>
+        </Field>
+        <Field Name="Credit">
+          <DataField>Credit</DataField>
+        </Field>
+        <Field Name="CourseStartDate">
+          <DataField>CourseStartDate</DataField>
+        </Field>
+        <Field Name="CourseEndDate">
+          <DataField>CourseEndDate</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
 </Report>

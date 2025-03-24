@@ -17,6 +17,10 @@ page 50004 "StudentPage"
                     ApplicationArea = All;
                     ToolTip = 'The student number';
                     Editable = false;
+                    trigger OnDrillDown()
+                    begin
+                        Page.Run(Page::StudentPage2, Rec);
+                    end;
                 }
                 field("Name"; Rec.Name)
                 {
