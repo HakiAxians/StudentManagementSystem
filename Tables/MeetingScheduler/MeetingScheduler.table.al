@@ -46,6 +46,7 @@ table 50150 Meeting
             Caption = 'Notes';
         }
     }
+    
 
     keys
     {
