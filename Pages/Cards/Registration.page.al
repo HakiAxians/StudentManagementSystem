@@ -15,6 +15,7 @@ page 50005 "RegistrationPage"
                 {
                     ApplicationArea = All;
                     ToolTip = 'The enrollment ID';
+                    Editable = false;
                 }
 
 
@@ -22,11 +23,25 @@ page 50005 "RegistrationPage"
                 {
                     ApplicationArea = All;
                     ToolTip = 'The student ID';
+                    Visible = false;
+                }
+                field("Student Name"; Rec.Name)
+                {
+                    ApplicationArea = All;
+                    Caption = 'Student Name';
+                    ToolTip = 'The student name';
                 }
                 field("Course ID"; Rec.CourseID)
                 {
                     ApplicationArea = All;
                     ToolTip = 'The course ID';
+                    Visible = false;
+                }
+                field("Course Name"; Rec.CourseName)
+                {
+                    ApplicationArea = All;
+                    Caption = 'Course Name';
+                    ToolTip = 'The course name';
                 }
                 field("Registration Date"; Rec.RegistrationDate)
                 {

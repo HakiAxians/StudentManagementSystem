@@ -22,6 +22,23 @@ table 55004 GradeTable
             DataClassification = ToBeClassified;
         }
 
+        field(22; CourseName; Text[20])
+        {
+            DataClassification = ToBeClassified;
+            TableRelation = "CourseTable".CourseName;
+        }
+
+        field(23; Name; Text[20])
+        {
+            DataClassification = ToBeClassified;
+            TableRelation = "StudentTable".Name;
+        }
+        field(25; Email; Text[30])
+        {
+            DataClassification = ToBeClassified;
+            TableRelation = "StudentTable".Email;
+        }
+
         field(30; Grade; Integer)
         {
             DataClassification = ToBeClassified;
@@ -52,6 +69,7 @@ table 55004 GradeTable
 
     var
         Avarage: Codeunit StudentAverage;
+        SendEmail: Codeunit GradeEmailCodeunit;
 
     trigger OnInsert()
     begin

@@ -16,10 +16,23 @@ table 50003 "RegistrationTable"
             TableRelation = "StudentTable".StudentID;
 
         }
+
+        field(22; Name; Text[50])
+        {
+            DataClassification = ToBeClassified;
+            TableRelation = "StudentTable".Name;
+
+        }
         field(30; CourseID; Integer)
         {
             DataClassification = ToBeClassified;
             TableRelation = "CourseTable".CourseID;
+
+        }
+        field(32; CourseName; Text[50])
+        {
+            DataClassification = ToBeClassified;
+            TableRelation = "CourseTable".CourseName;
 
         }
         field(40; RegistrationDate; Date)

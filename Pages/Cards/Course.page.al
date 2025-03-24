@@ -80,12 +80,17 @@ page 50006 "CoursePage"
     {
         area(Processing)
         {
-            action(ActionName)
+            action("PrintCourseReport")
             {
-                
+                Caption = 'Print Student Report';
+                Image = Print;
+                ApplicationArea = All;
                 trigger OnAction()
+                var
+                    CourseReport: Report "CourseReport";
                 begin
-                    
+                    CourseReport.SetTableView(Rec);
+                    CourseReport.RunModal();
                 end;
             }
         }

@@ -49,13 +49,9 @@ table 50002 "CourseTable"
 
     keys
     {
-        key(CourseID; CourseID)
+        key(CourseID; CourseID,CourseName)
         {
             Clustered = true;
-        }
-        key(CourseName; CourseName)
-        {
-            Clustered = false;
         }
     }
 
