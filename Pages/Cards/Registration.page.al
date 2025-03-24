@@ -87,7 +87,7 @@ page 50005 "RegistrationPage"
 
             {
                 ApplicationArea = All;
-                RunObject =query "StudentEnrollemntQuery";
+                RunObject = query "StudentEnrollemntQuery";
 
                 trigger OnAction()
                 begin

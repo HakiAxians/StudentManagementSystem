@@ -107,7 +107,7 @@ page 50151 "Meeting Scheduler"
                 Image = User;
                 trigger OnAction()
                 begin
-                    PAGE.RUN(PAGE::"StudentTable2");
+                    PAGE.RUN(PAGE::"StudentPage2");
                 end;
             }
             action("GoToMeetingCalendar")

@@ -4,7 +4,7 @@ page 50004 "StudentPage"
     ApplicationArea = All;
     UsageCategory = Administration;
     SourceTable = StudentTable;
-    
+
 
     layout
     {
@@ -73,9 +73,9 @@ page 50004 "StudentPage"
     }
 
     actions
-    
+
     {
-        
+
         area(Processing)
         {
             group("Record Actions")
@@ -117,18 +117,18 @@ page 50004 "StudentPage"
             group("Extras")
             {
                 action("PrintStudentReport")
-            {
-                Caption = 'Print Student Report';
-                Image = Print;
-                ApplicationArea = All;
-                trigger OnAction()
-                var
-                    StudentReport: Report "StudentReport";
-                begin
-                    StudentReport.SetTableView(Rec);
-                    StudentReport.RunModal();
-                end;
-            }
+                {
+                    Caption = 'Print Student Report';
+                    Image = Print;
+                    ApplicationArea = All;
+                    trigger OnAction()
+                    var
+                        StudentReport: Report "StudentReport";
+                    begin
+                        StudentReport.SetTableView(Rec);
+                        StudentReport.RunModal();
+                    end;
+                }
                 action("Send a Message")
                 {
                     Caption = 'Send a Message';
@@ -143,15 +143,16 @@ page 50004 "StudentPage"
 
             }
 
-action("BackToList")
-                {
-                    Caption = 'Back to List';
-                    Image = Return;
-                    trigger OnAction()
-                    begin
-                        PAGE.RUN(PAGE::"StudentTable2", Rec);
-                    end;
-                }
+            action("BackToList")
+            {
+                Caption = 'More Details';
+                ApplicationArea = All;
+                Image = Return;
+                trigger OnAction()
+                begin
+                    PAGE.RUN(PAGE::"StudentPage2");
+                end;
+            }
 
 
         }

@@ -107,7 +107,7 @@ page 50009 "Registration Table2"
                 Image = Camera;
                 trigger OnAction()
                 begin
-                    PAGE.Run(PAGE::"StudentTable2");
+                    PAGE.Run(PAGE::"StudentPage2");
                 end;
             }
             action("GoToCourseList")
