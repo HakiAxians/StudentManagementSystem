@@ -157,8 +157,37 @@ page 50004 "StudentPage"
                     PAGE.RUN(PAGE::"StudentPage2");
                 end;
             }
+            action("More Details")
+            {
+                Caption = 'More Details';
+                ApplicationArea = All;
+                Image = View;
+
+                Promoted = true;
+                PromotedCategory = Process;
+                PromotedIsBig = false;
+                trigger OnAction()
+                begin
+                    PAGE.RUN(PAGE::"StudentPage2", Rec);
+                end;
 
 
+            }
+            action("Delete")
+            {
+                Caption = 'Delete';
+                ApplicationArea = All;
+                Image = Delete;
+
+                Promoted = true;
+                PromotedCategory = Process;
+                PromotedIsBig = false;
+                trigger OnAction()
+                begin
+                    Rec.DELETE;
+                    CurrPage.Close();
+                end;
+            }
         }
     }
 }

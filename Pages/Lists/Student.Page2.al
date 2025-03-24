@@ -1,3 +1,4 @@
+
 page 50010 "StudentPage2"
 {
     PageType = List;
@@ -9,7 +10,7 @@ page 50010 "StudentPage2"
     {
         area(Content)
         {
-            group(Repeater)
+            group("Student Information")
             {
                 field("Student ID"; Rec.StudentID)
                 {
@@ -21,12 +22,10 @@ page 50010 "StudentPage2"
                     ApplicationArea = All;
                     ToolTip = 'The first name of the student';
                 }
-
                 field("Surname"; Rec.Surname)
                 {
                     ApplicationArea = All;
                     ToolTip = 'The last name of the student';
-
                 }
                 field("Date of Birth"; Rec.DateOfBirth)
                 {
@@ -99,10 +98,9 @@ page 50010 "StudentPage2"
                 {
                     ApplicationArea = All;
                 }
-                field("Advisor "; Rec."Advisor")
+                field("Advisor"; Rec."Advisor")
                 {
                     ApplicationArea = All;
-
                 }
                 field("Notes"; Rec."Notes")
                 {
@@ -132,35 +130,27 @@ page 50010 "StudentPage2"
         {
             group("Student Actions")
             {
-
-
                 action("NewStudent")
                 {
                     Caption = 'New Student';
                     ApplicationArea = All;
                     Image = New;
-                    RunObject = Page StudentPage;
+                    RunObject = Page "StudentPage";
                     trigger OnAction()
                     begin
                         PAGE.RUN(PAGE::"StudentPage");
                     end;
-
-
-
-
-
                 }
                 action("EditStudent")
                 {
                     Caption = 'Edit Student';
                     Image = Edit;
-                    RunObject = Page StudentPage;
+                    RunObject = Page "StudentPage";
                     ApplicationArea = All;
                     trigger OnAction()
                     begin
                         PAGE.RUN(PAGE::"StudentPage");
                     end;
-
                 }
                 action("DeleteStudent")
                 {
@@ -171,32 +161,45 @@ page 50010 "StudentPage2"
                     begin
                         Rec.DELETE;
                     end;
-
-
                 }
-                group("Search")
+                 action("ScheduleMeeting")
+            {
+                Caption = 'Schedule Meeting';
+                Image = Calendar;
+                ApplicationArea = All;
+
+               
+                Promoted = true;                  
+                PromotedCategory = Process;       
+                PromotedIsBig = false;            
+                              
+
+                trigger OnAction()
+                begin
+                    PAGE.RUN(PAGE::"Meeting Scheduler");
+                end;
+            }
+            group("Search")
+            {
+                action("AdvancedSearch")
                 {
-                    action("AdvancedSearch")
-                    {
-                        Caption = 'Advanced Search';
-                        ApplicationArea = All;
-                        trigger OnAction()
-                        begin
-                            Rec.SETRANGE("Name", 'A*');
-                            Rec.SETRANGE("Surname", 'A*');
-                            Rec.SETRANGE("Email", 'A*');
-                            Rec.SETRANGE("Address", 'A*');
-                            Rec.SETRANGE("Phone No", 'A*');
-                            Rec.SETFILTER("Status", 'A*');
-                        end;
-                    }
+                    Caption = 'Advanced Search';
+                    ApplicationArea = All;
+                    trigger OnAction()
+                    begin
+                        Rec.SETRANGE("Name", 'A*');
+                        Rec.SETRANGE("Surname", 'A*');
+                        Rec.SETRANGE("Email", 'A*');
+                        Rec.SETRANGE("Address", 'A*');
+                        Rec.SETRANGE("Phone No", 'A*');
+                        Rec.SETFILTER("Status", 'A*');
+                    end;
                 }
             }
         }
+        }
         area(Navigation)
         {
-
-
             action("ExportData")
             {
                 Caption = 'Export Data';
@@ -206,7 +209,6 @@ page 50010 "StudentPage2"
                 begin
                     MESSAGE('Nashta bahet ma vone');
                 end;
-
             }
             action("PrintList")
             {
@@ -217,8 +219,6 @@ page 50010 "StudentPage2"
                 begin
                     MESSAGE('Ndoshta behet me vone nuk idihet');
                 end;
-
-
             }
             action("Refresh")
             {
@@ -230,19 +230,11 @@ page 50010 "StudentPage2"
                     CurrPage.UPDATE(false);
                 end;
             }
-            action("ScheduleMeeting")
-            {
-                Caption = 'Schedule Meeting';
-                Image = Calendar;
-                ApplicationArea = All;
-                trigger OnAction()
-                begin
-                    PAGE.Run(PAGE::"Meeting Scheduler");
-                end;
-            }
-
-
-
         }
-    }
+       
 }
+
+            }
+        
+    
+
