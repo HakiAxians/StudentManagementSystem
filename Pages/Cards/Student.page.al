@@ -16,6 +16,7 @@ page 50004 "StudentPage"
                 {
                     ApplicationArea = All;
                     ToolTip = 'The student number';
+                    Editable = false;
                 }
                 field("Name"; Rec.Name)
                 {

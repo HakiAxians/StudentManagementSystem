@@ -19,12 +19,28 @@ page 55009 GradePage
                 field(StudentId; Rec.StudentId)
                 {
                     ApplicationArea = All;
-                    Visible = True;
+                    Visible = false;
                 }
                 field(CourseId; Rec.CourseId)
                 {
                     ApplicationArea = All;
+                    Visible = false;
+                }
+                field(Name; Rec.Name)
+                {
+                    ApplicationArea = All;
                     Visible = True;
+                }
+                field(CourseName; Rec.CourseName)
+                {
+                    ApplicationArea = All;
+                    Visible = True;
+                }
+                
+                field(Email; Rec.Email)
+                {
+                    ApplicationArea = All;
+                    Visible = false;
                 }
                 field(Grade; Rec.Grade)
                 {
@@ -48,6 +64,17 @@ page 55009 GradePage
             {
                 ApplicationArea = All;
                 RunObject = Query "GradeDistrubutionQuery";
+                trigger OnAction()
+
+                begin
+                    
+                end;
+            }
+
+            action("Confirm Grade")
+            {
+                ApplicationArea = All;
+                RunObject = Codeunit GradeEmailCodeunit;
                 trigger OnAction()
 
                 begin

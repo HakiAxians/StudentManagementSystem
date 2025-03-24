@@ -35,12 +35,12 @@ table  50000 "StudentTable"
             DataClassification = ToBeClassified;
             
         }
-        field(70;"Email"; Text[80])
+        field(70;"Email"; Text[30])
         {
             DataClassification = ToBeClassified;
             
         }
-        field(80;"Address"; Text[250])
+        field(80;"Address"; Text[30])
         {
             DataClassification = ToBeClassified;
             
@@ -62,7 +62,7 @@ table  50000 "StudentTable"
     
     keys
     {
-        key(StudentID; StudentID)
+        key(StudentID; StudentID,Name)
         {
             Clustered = true;
         }

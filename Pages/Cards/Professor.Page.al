@@ -14,7 +14,8 @@ page 55011 "ProfessorPage"
                 field(ProfessorId; Rec.ProfessorId)
                 {
                     ApplicationArea = All;
-                    Visible = false;
+                    Visible = true;
+                    Editable = false;
                 }
                 field(Name; Rec.Name)
                 {
