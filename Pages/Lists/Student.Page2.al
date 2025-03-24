@@ -1,4 +1,4 @@
-page 50010 "StudentTable2"
+page 50010 "StudentPage2"
 {
     PageType = List;
     ApplicationArea = All;
@@ -62,6 +62,53 @@ page 50010 "StudentTable2"
                     ApplicationArea = All;
                 }
             }
+            group("More information")
+            {
+                field("Middle Name"; Rec."Middle Name")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'The middle name of the student';
+                }
+                field("Nationality"; Rec."Nationality")
+                {
+                    ApplicationArea = All;
+                }
+                field("Emergency Contact Name"; Rec."Emergency Contact Name")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'The name of the emergency contact';
+                }
+                field("Emergency Contact Phone"; Rec."Emergency Contact Phone")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'The phone number of the emergency contact';
+                }
+                field("Program"; Rec.Program)
+                {
+                    ApplicationArea = All;
+                }
+                field("Minor"; Rec.Minor)
+                {
+                    ApplicationArea = All;
+                }
+                field("Year/level"; Rec."Year/level")
+                {
+                    ApplicationArea = All;
+                }
+                field("GPA"; Rec.GPA)
+                {
+                    ApplicationArea = All;
+                }
+                field("Advisor "; Rec."Advisor")
+                {
+                    ApplicationArea = All;
+
+                }
+                field("Notes"; Rec."Notes")
+                {
+                    ApplicationArea = All;
+                }
+            }
         }
     }
 
@@ -71,6 +118,8 @@ page 50010 "StudentTable2"
         {
             group("Student Actions")
             {
+
+
                 action("NewStudent")
                 {
                     Caption = 'New Student';

@@ -94,13 +94,44 @@ page 54321 "GradePage2"
 
 
 
+
         }
         area(Navigation)
         {
-
+            action("BackToCard")
+            {
+                ApplicationArea = All;
+                Caption = 'Back to Card';
+                trigger OnAction()
+                begin
+                    PAGE.Run(PAGE::"GradePAGE");
+                end;
+            }
+            action("GotoStudentProfile")
+            {
+                ApplicationArea = All;
+                Caption = 'Student Profile';
+                Image = User;
+                RunObject = page "StudentPage";
+                trigger OnAction()
+                begin
+                    PAGE.RUN(PAGE::"StudentPage", Rec);
+                end;
+            }
+            action("GotoCourseProfile")
+            {
+                ApplicationArea = All;
+                Caption = 'Course Profile';
+                Image = Document;
+                RunObject = page "CoursePage";
+                trigger OnAction()
+                begin
+                    PAGE.RUN(PAGE::"CoursePage", Rec);
+                end;
+            }
         }
+
+
+
     }
-
-
-
 }
