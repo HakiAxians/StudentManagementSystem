@@ -110,6 +110,20 @@ page 50010 "StudentPage2"
                 }
             }
         }
+            area(FactBoxes){
+            part("Student Photo"; "Customer Picture")
+            {   
+                Caption = 'Student Photo';
+                ApplicationArea = Basic, Suite;
+            }
+
+            part("Sell-to Customer Sales History"; "Customer Statistics FactBox")
+            {   
+                Caption = 'Student Statistics';
+                ApplicationArea = Basic, Suite;
+            }
+
+        }
     }
 
     actions

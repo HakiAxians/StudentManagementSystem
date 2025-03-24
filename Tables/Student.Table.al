@@ -108,6 +108,10 @@ table 50000 "StudentTable"
             DataClassification = ToBeClassified;
             // Additional remarks or comments about the student.
         }
+        field(160; "Student Picture"; Media)
+        {
+            DataClassification = ToBeClassified;
+        }
     }
     
     keys
