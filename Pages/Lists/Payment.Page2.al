@@ -90,6 +90,20 @@ page 54000 "PaymentPage2"
                 end;
             }
         }
+        area(Navigation)
+        {
+            action("GoToCard")
+            {
+                Caption = 'Go To Card';
+                Image = View;   
+                ApplicationArea = All;
+                trigger OnAction()
+                begin
+                    CurrPage.UPDATE(false);
+                    PAGE.RUNMODAL(PAGE::"PaymentPage");
+                end;
+            }
+        }
     }
 
     

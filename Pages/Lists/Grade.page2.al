@@ -44,17 +44,63 @@ page 54321 "GradePage2"
     {
         area(Processing)
         {
-            action(ActionName)
+            action("NewGrade")
             {
-
+                ApplicationArea = All;
+                Caption = 'New Grade';
+                Image = New;
+                RunObject = page "GradePage";
                 trigger OnAction()
                 begin
-
+                    PAGE.RUN(PAGE::"GradePage");
                 end;
             }
+            action("EditGrade")
+            {
+                ApplicationArea = All;
+                Caption = 'Edit Grade';
+                Image = Edit;
+                RunObject = page "GradePage";
+                trigger OnAction()
+                begin
+                    PAGE.RUN(PAGE::"GradePage");
+                end;
+            }
+            action("DeleteGrade")
+            {
+                ApplicationArea = All;
+                Caption = 'Delete Grade';
+                Image = Delete;
+                trigger OnAction()
+                begin
+                    Rec.DELETE;
+                end;
+            }
+            action("Refresh")
+            {
+                ApplicationArea = All;
+                Caption = 'Refresh';
+                Image = Refresh;
+                trigger OnAction()
+                begin
+                    CurrPage.Update(false);
+                end;
+            }
+
+
+
+
+
+
+
+
+        }
+        area(Navigation)
+        {
+
         }
     }
 
-    var
-        myInt: Integer;
+
+
 }
