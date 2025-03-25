@@ -67,44 +67,54 @@ page 50010 "StudentPage2"
                 {
                     ApplicationArea = All;
                     ToolTip = 'The middle name of the student';
+                        Importance = Additional;
                 }
                 field("Nationality"; Rec."Nationality")
                 {
                     ApplicationArea = All;
+                        Importance = Additional;
                 }
                 field("Emergency Contact Name"; Rec."Emergency Contact Name")
                 {
                     ApplicationArea = All;
                     ToolTip = 'The name of the emergency contact';
+                        Importance = Additional;
                 }
                 field("Emergency Contact Phone"; Rec."Emergency Contact Phone")
                 {
                     ApplicationArea = All;
                     ToolTip = 'The phone number of the emergency contact';
+                        Importance = Additional;
                 }
                 field("Program"; Rec.Program)
                 {
                     ApplicationArea = All;
+                        Importance = Additional;
                 }
                 field("Minor"; Rec.Minor)
                 {
                     ApplicationArea = All;
+                        Importance = Additional;
                 }
                 field("Year/level"; Rec."Year/level")
                 {
                     ApplicationArea = All;
+                        Importance = Additional;
                 }
                 field("GPA"; Rec.GPA)
                 {
                     ApplicationArea = All;
+                        Importance = Additional;
                 }
                 field("Advisor"; Rec."Advisor")
                 {
                     ApplicationArea = All;
+                        Importance = Additional;
                 }
                 field("Notes"; Rec."Notes")
                 {
                     ApplicationArea = All;
+                        Importance = Additional;
                 }
             }
         }
@@ -159,6 +169,7 @@ page 50010 "StudentPage2"
                     Image = Delete;
                     trigger OnAction()
                     begin
+                       if confirm ('Are you sure u wanna do this') then
                         Rec.DELETE;
                     end;
                 }

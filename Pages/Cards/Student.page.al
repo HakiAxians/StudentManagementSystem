@@ -146,22 +146,16 @@ page 50004 "StudentPage"
 
 
             }
+        }
+        area(Navigation)
+        {
 
-            action("BackToList")
-            {
-                Caption = 'More Details';
-                ApplicationArea = All;
-                Image = Return;
-                trigger OnAction()
-                begin
-                    PAGE.RUN(PAGE::"StudentPage2");
-                end;
-            }
+
             action("More Details")
             {
                 Caption = 'More Details';
                 ApplicationArea = All;
-                Image = View;
+                Image = ViewDetails;
 
                 Promoted = true;
                 PromotedCategory = Process;
@@ -188,6 +182,7 @@ page 50004 "StudentPage"
                     CurrPage.Close();
                 end;
             }
+
         }
     }
 }

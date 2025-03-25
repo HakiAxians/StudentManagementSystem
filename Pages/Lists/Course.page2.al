@@ -1,4 +1,4 @@
-page 53210 "CourseTable2"
+page 53210 "CoursePage2"
 {
     PageType = List;
     ApplicationArea = All;
@@ -9,7 +9,7 @@ page 53210 "CourseTable2"
     {
         area(Content)
         {
-            group(Repeater)
+            group("Course Details")
             {
                 field("CourseID"; Rec."CourseID")
                 {
@@ -75,22 +75,91 @@ page 53210 "CourseTable2"
             }
         }
     }
-
     actions
     {
+
+
         area(Processing)
         {
-            action(ActionName)
+            group("Course Actions")
             {
+                action("NewCourse")
+                {
+                    Caption = 'New Course';
+                    ApplicationArea = All;
+                    Image = New;
+                    trigger OnAction()
+                    begin
+                        CurrPage.UPDATE(false);
+                        Rec.INSERT;
+                    end;
+                }
+                action("EditCourse")
+                {
+                    Caption = 'Edit Course';
+                    ApplicationArea = All;
+                    Image = Edit;
+                    trigger OnAction()
+                    begin
+                        CurrPage.UPDATE(false);
+                        Rec.MODIFY;
+                    end;
+                }
+                action("DeleteCourse")
+                {
+                    Caption = 'Delete Course';
+                    ApplicationArea = All;
+                    Image = Delete;
+                    trigger OnAction()
+                    begin
+                        if CONFIRM('Are you sure you want to delete this course?', false) then
+                            Rec.DELETE;
+                    end;
+                }
+                action("RefreshList")
+                {
+                    Caption = 'Refresh';
+                    ApplicationArea = All;
+                    Image = Refresh;
+                    trigger OnAction()
+                    begin
+                        CurrPage.UPDATE(false);
+                    end;
+                }
+            }
+        }
+        area(Navigation)
+        {
+            group("Import/Print")
+            {
+                action("ImportData")
+                {
+                    Caption = 'Import Data';
+                    ApplicationArea = All;
+                    Image = Import;
+                    trigger OnAction()
+                    begin
 
-                trigger OnAction()
-                begin
+                        MESSAGE('Import functionality not yet implemented(akoma jo).');
+                    end;
+                }
+                action("PrintList")
+                {
+                    Caption = 'Print Course List';
+                    ApplicationArea = All;
+                    Image = Print;
+                    trigger OnAction()
+                    var
+                        CourseReport: Report "CourseReport";
+                    begin
 
-                end;
+                        CourseReport.SetTableView(Rec);
+                        CourseReport.RUNMODAL;
+
+
+                    end;
+                }
             }
         }
     }
-
-    var
-        myInt: Integer;
 }

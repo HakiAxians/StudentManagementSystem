@@ -4,7 +4,7 @@ page 50006 "CoursePage"
     ApplicationArea = All;
     UsageCategory = Administration;
     SourceTable = CourseTable;
-    
+
     layout
     {
         area(Content)
@@ -67,22 +67,18 @@ page 50006 "CoursePage"
                     ToolTip = 'Type of Course';
                     editable = true;
                 }
-            
-            
-                
-                    
-                
             }
         }
     }
-    
+
+
     actions
     {
         area(Processing)
         {
             action("PrintCourseReport")
             {
-                Caption = 'Print Student Report';
+                Caption = 'Print Course Report';
                 Image = Print;
                 ApplicationArea = All;
                 trigger OnAction()
@@ -93,9 +89,87 @@ page 50006 "CoursePage"
                     CourseReport.RunModal();
                 end;
             }
+            action("Save")
+            {
+                Caption = 'Save';
+                ApplicationArea = All;
+                Image = Save;
+                trigger OnAction()
+                begin
+
+                    CurrPage.UPDATE(false);
+                end;
+            }
+            action("Cancel")
+            {
+                Caption = 'Cancel';
+                ApplicationArea = All;
+                Image = Cancel;
+                trigger OnAction()
+                begin
+
+                    CurrPage.CLOSE;
+                end;
+            }
+
+            group("Course Extras")
+            {
+                action("AssignInstructor")
+                {
+                    Caption = 'Assign Instructor';
+                    ApplicationArea = All;
+                    Image = ReservationLedger;
+                    trigger OnAction()
+                    begin
+
+                        MESSAGE('shume shpejt.');
+                    end;
+                }
+                action("ScheduleSessions")
+                {
+                    Caption = 'Schedule Sessions';
+                    ApplicationArea = All;
+                    Image = Calendar;
+                    trigger OnAction()
+                    begin
+
+                        MESSAGE('shume shpejt');
+                    end;
+                }
+                action("DeleteCourse")
+                {
+                    Caption = 'Delete';
+                    ApplicationArea = All;
+                    Image = Delete;
+
+                    Promoted = true;
+                    PromotedCategory = Process;
+                    PromotedIsBig = false;
+
+
+
+                    trigger OnAction()
+                    begin
+                        IF CONFIRM('Are you sure you want to delete this course?') THEN begin
+                            Rec.DELETE;
+                            CurrPage.UPDATE(false);
+                        end;
+                    end;
+                }
+                action("BacktoCourseList")
+                {
+                    Caption = 'More Details';
+                    ApplicationArea = All;
+                    Image = "ViewDetails";
+                    Promoted = true;
+                    PromotedCategory = Process;
+                    PromotedIsBig = false;
+                    trigger OnAction()
+                    begin
+                        PAGE.RUN(PAGE::"CoursePage2");
+                    end;
+                }
+            }
         }
     }
-    
-    var
-        myInt: Integer;
 }
