@@ -49,7 +49,7 @@ page 54000 "PaymentPage2"
                     ApplicationArea = All;
                     Caption = 'New Payment';
                     Image = New;
-                    RunObject= page  "PaymentPage";
+                    RunObject = page "PaymentPage";
                     trigger OnAction()
                     begin
                         PAGE.RUN(PAGE::"PaymentPage");
@@ -60,7 +60,7 @@ page 54000 "PaymentPage2"
                     ApplicationArea = All;
                     Caption = 'Edit Payment';
                     Image = Edit;
-                    RunObject= page  "PaymentPage";
+                    RunObject = page "PaymentPage";
                     trigger OnAction()
                     begin
                         PAGE.RUN(PAGE::"PaymentPage");
@@ -71,7 +71,7 @@ page 54000 "PaymentPage2"
                     ApplicationArea = All;
                     Caption = 'Delete Payment';
                     Image = Delete;
-                    RunObject= page  "PaymentPage";
+                    RunObject = page "PaymentPage";
                     trigger OnAction()
                     begin
                         PAGE.RUN(PAGE::"PaymentPage");
@@ -94,8 +94,8 @@ page 54000 "PaymentPage2"
         {
             action("GoToCard")
             {
-                Caption = 'Go To Card';
-                Image = View;   
+                Caption = 'Go Back';
+                Image = View;
                 ApplicationArea = All;
                 trigger OnAction()
                 begin
@@ -106,6 +106,6 @@ page 54000 "PaymentPage2"
         }
     }
 
-    
+
 
 }

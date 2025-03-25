@@ -91,19 +91,41 @@ page 50005 "RegistrationPage"
 
                 trigger OnAction()
                 begin
-                    PAGE.Run(PAGE::"Registration Table2");
+                    PAGE.Run(PAGE::"Registration Page2");
                 end;
             }
-            action("BackToList")
 
+        }
+        area(Navigation)
+        {
+            action("Delete")
             {
                 ApplicationArea = All;
-                Caption = 'Back to List';
+                Caption = 'Delete';
+                Image = Delete;
+                Promoted = true;
+                PromotedCategory = Process;
+                PromotedIsBig = false;
                 trigger OnAction()
                 begin
-                    PAGE.Run(PAGE::"Registration Table2");
+                    Rec.Delete(true);
+                end;
+            }
+            action("More Details")
+            {
+                ApplicationArea = All;
+                Caption = 'More Details';
+                Image = ViewDetails;
+                Promoted = true;
+                PromotedCategory = Process;
+                PromotedIsBig = false;
+                trigger OnAction()
+                begin
+                    PAGE.Run(PAGE::"Registration Page2", Rec);
                 end;
             }
         }
+
+
     }
 }

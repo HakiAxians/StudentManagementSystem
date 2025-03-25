@@ -51,14 +51,14 @@ page 55011 "ProfessorPage"
                 Caption = 'Print Student Report';
                 Image = Print;
                 ApplicationArea = All;
-                
+
                 trigger OnAction()
                 var
                     ProfessorReport: Report "ProfessorReport";
                 begin
-                ProfessorReport.SetTableView(Rec);
-                ProfessorReport.RunModal();
-                end;   
+                    ProfessorReport.SetTableView(Rec);
+                    ProfessorReport.RunModal();
+                end;
             }
             action("Save")
             {
@@ -75,19 +75,10 @@ page 55011 "ProfessorPage"
                 Image = Cancel;
                 trigger OnAction()
                 begin
-                    CurrPage.Close();
+                    CurrPage.Update();
                 end;
             }
-            action("Delete")
-            {
-                Caption = 'Delete';
-                Image = Delete;
-                trigger OnAction()
-                begin
-                    Rec.Delete();
-                    CurrPage.Close();
-                end;
-            }
+
             action("Edit")
             {
                 Caption = 'Edit';
@@ -106,13 +97,35 @@ page 55011 "ProfessorPage"
                     CurrPage.Update(true);
                 end;
             }
-            action("GoToList")
+
+        }
+        area(Navigation)
+        {
+            action("More Details")
             {
-                Caption = 'Go to List';
-                Image = List;
+                Caption = 'More Details';
+                Image = ViewDetails;
+                ApplicationArea = All;
+                Promoted = true;
+                PromotedCategory = Process;
+                PromotedIsBig = false;
                 trigger OnAction()
                 begin
-                    Page.Run(Page::ProfessorPage2);
+                    PAGE.RUN(PAGE::"ProfessorPage2", Rec);
+                end;
+            }
+            action("Delete")
+            {
+                Caption = 'Delete';
+                Image = Delete;
+                ApplicationArea = All;
+                Promoted = true;
+                PromotedCategory = Process;
+                PromotedIsBig = false;
+                trigger OnAction()
+                begin
+                    Rec.Delete(true);
+                    CurrPage.Close();
                 end;
             }
         }
