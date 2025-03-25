@@ -8,6 +8,14 @@ table 50000 "StudentTable"
         {
             DataClassification = ToBeClassified;
         }
+        field(15; FileName; Text[30])
+        {
+            DataClassification = ToBeClassified;
+        }
+        field(18; SheetName; Text[30])
+        {
+            DataClassification = ToBeClassified;
+        }
         field(20; "Name"; Text[50])
         {
             DataClassification = ToBeClassified;
