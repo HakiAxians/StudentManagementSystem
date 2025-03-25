@@ -33,7 +33,7 @@ table 55004 GradeTable
             DataClassification = ToBeClassified;
             TableRelation = "StudentTable".Name;
         }
-        field(25; Email; Text[30])
+        field(25; Email; Text[35])
         {
             DataClassification = ToBeClassified;
             TableRelation = "StudentTable".Email;

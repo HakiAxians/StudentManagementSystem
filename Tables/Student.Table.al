@@ -46,7 +46,7 @@ table 50000 "StudentTable"
         {
             DataClassification = ToBeClassified;
         }
-        field(70; "Email"; Text[30])
+        field(70; "Email"; Text[35])
         {
             DataClassification = ToBeClassified;
         }

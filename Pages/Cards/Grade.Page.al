@@ -21,6 +21,7 @@ page 55009 GradePage
                     ApplicationArea = All;
                     Visible = false;
                 }
+
                 field(CourseId; Rec.CourseId)
                 {
                     ApplicationArea = All;
@@ -29,7 +30,7 @@ page 55009 GradePage
                 field(Name; Rec.Name)
                 {
                     ApplicationArea = All;
-                    Visible = True;
+                    Visible = false;
                 }
                 field(CourseName; Rec.CourseName)
                 {
