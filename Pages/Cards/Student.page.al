@@ -2,8 +2,13 @@ page 50004 "StudentPage"
 {
     PageType = Card;
     ApplicationArea = All;
-    UsageCategory = Administration;
+    UsageCategory = Tasks;
     SourceTable = StudentTable;
+    AutoSplitKey = True;
+    DelayedInsert = true;
+    InsertAllowed = false;
+    ModifyAllowed = false;
+    SaveValues = true;
 
 
     layout
@@ -133,6 +138,18 @@ page 50004 "StudentPage"
                         StudentReport.RunModal();
                     end;
                 }
+
+                action("Import Data")
+                {
+                    Caption = 'Import Data';
+                    Image = Import;
+                    ApplicationArea = All;
+                    trigger OnAction()
+                    begin
+                        ImportExelCodeunit.ReadExelSheet();
+                        ImportExelCodeunit.InsertExelData();
+                    end;
+                }
                 action("Send a Message")
                 {
                     Caption = 'Send a Message';
@@ -185,4 +202,8 @@ page 50004 "StudentPage"
 
         }
     }
+
+    var
+        ImportExelCodeunit: Codeunit "ImportExelCodeunit";
 }
+

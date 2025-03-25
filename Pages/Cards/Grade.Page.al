@@ -74,15 +74,13 @@ page 55009 GradePage
             action("Confirm Grade")
             {
                 ApplicationArea = All;
-                RunObject = Codeunit GradeEmailCodeunit;
                 trigger OnAction()
 
                 begin
-
+                    GradeEmailCodeunit.SendEmail(Rec);
                 end;
             }
-        }
-
+    
         area(Navigation)
         {
             group("Grade Actions")
@@ -146,6 +144,7 @@ page 55009 GradePage
 
         }
 
+    var
+        GradeEmailCodeunit: Codeunit "GradeEmailCodeunit";
 
-    }
 }
