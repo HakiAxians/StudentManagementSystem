@@ -88,24 +88,92 @@ page 55010 PaymentPage
         }
         area(Navigation)
         {
-            action("Print Receipt")
+            group("Import/Print")
+            {
+                action("Print Receipt")
+                {
+                    ApplicationArea = All;
+                    Caption = 'Print Payment Receipt';
+                    Image = Print;
+                    trigger OnAction()
+                    var
+                    // PaymentReceipt: Report "PaymentReceipt";
+                    begin
+                        // PaymentReceipt.SetTableView(Rec);
+                        // PaymentReceipt.RunModal();
+                    end;
+
+                }
+                action("Import")
+                {
+                    ApplicationArea = All;
+                    Caption = 'Import Payment';
+                    Image = Import;
+                    trigger OnAction()
+                    var
+                    // PaymentImport: Codeunit "PaymentImport";
+                    begin
+                        // 
+                        Message('Coming soon');
+                    end;
+                }
+                // action("Delete")
+                // {
+                //     ApplicationArea = All;
+                //     Caption = 'Delete';
+                //     Image = Delete;
+                //     Promoted = true;
+                //     PromotedCategory = Process;
+                //     PromotedIsBig = false;
+                //     trigger OnAction()
+                //     begin
+                //         Rec.Delete(true);
+                //         CurrPage.Update();
+                //     end;
+                // }
+                // action("More Details")
+                // {
+                //     ApplicationArea = All;
+                //     Caption = 'More Details';
+                //     Image = ViewDetails;
+                //     Promoted = true;
+                //     PromotedCategory = Process;
+                //     PromotedIsBig = false;
+                //     trigger OnAction()
+                //     begin
+                //         PAGE.RUN(PAGE::"PaymentPage2", Rec);
+                //     end;
+                // }
+
+            }
+        }
+        area(Creation)
+        {
+            action("Delete")
             {
                 ApplicationArea = All;
-                Caption = 'Print Receipt';
-                Image = Print;
+                Caption = 'Delete';
+                Image = Delete;
+                Promoted = true;
+                PromotedCategory = Process;
+                PromotedIsBig = false;
                 trigger OnAction()
                 begin
-                    MESSAGE('Shume shpejt do te implementohet');
+                    Rec.Delete(true);
+                    CurrPage.Update();
                 end;
             }
-            action("GoToList")
+            action("More Details")
             {
                 ApplicationArea = All;
-                Caption = 'Go To List';
-                Image = List;
+                Caption = 'More Details';
+                Image = ViewDetails;
+                Promoted = true;
+                PromotedCategory = Process;
+                PromotedIsBig = false;
                 trigger OnAction()
                 begin
-                    PAGE.RUN(PAGE::"PaymentPage2");
+                    PAGE.RUN(PAGE::"PaymentPage2", Rec);
                 end;
             }
         }

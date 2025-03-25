@@ -1,4 +1,4 @@
-page 50009 "Registration Table2"
+page 50009 "Registration Page2"
 {
     PageType = List;
     ApplicationArea = All;
@@ -116,7 +116,7 @@ page 50009 "Registration Table2"
                 Image = Camera;
                 trigger OnAction()
                 begin
-                    PAGE.Run(PAGE::"CourseTable2");
+                    PAGE.Run(PAGE::"CoursePage2");
                 end;
 
             }

@@ -40,6 +40,8 @@ page 50151 "Meeting Scheduler"
                     ToolTip = 'Location of the meeting';
                 }
             }
+
+
         }
     }
 
@@ -47,36 +49,26 @@ page 50151 "Meeting Scheduler"
     {
         area(Processing)
         {
-            action("GoToCard")
-            {
-                Caption = 'Meeting Card';
-                Image = Card;
-                RunObject = Page "Meeting Card";
-                trigger OnAction()
-                begin
-                    PAGE.RUN(PAGE::"Meeting Card");
-                end;
-            }
             group("Meeting Actions")
             {
                 action("NewMeeting")
                 {
                     Caption = 'New Meeting';
                     Image = New;
-                    RunObject = Page "Meeting Card";
+                    RunObject = Page "Meeting Scheduler";
                     trigger OnAction()
                     begin
-                        PAGE.RUN(PAGE::"Meeting Card");
+                        PAGE.RUN(PAGE::"Meeting Scheduler");
                     end;
                 }
                 action("EditMeeting")
                 {
                     Caption = 'Edit Meeting';
                     Image = Edit;
-                    RunObject = Page "Meeting Card";
+                    RunObject = Page "Meeting Scheduler";
                     trigger OnAction()
                     begin
-                        PAGE.RUN(PAGE::"Meeting Card");
+                        PAGE.RUN(PAGE::"Meeting Scheduler");
                     end;
                 }
                 action("DeleteMeeting")
@@ -110,15 +102,15 @@ page 50151 "Meeting Scheduler"
                     PAGE.RUN(PAGE::"StudentPage2");
                 end;
             }
-            action("GoToMeetingCalendar")
-            {
-                Caption = 'Meeting Calendar';
-                Image = Calendar;
-                trigger OnAction()
-                begin
-                    PAGE.RUN(PAGE::"Meeting Calendar");
-                end;
-            }
+            // action("GoToMeetingCalendar")
+            // {
+            //     Caption = 'Meeting Calendar';
+            //     Image = Calendar;
+            //     trigger OnAction()
+            //     begin
+            //         PAGE.RUN(PAGE::"Meeting Calendar");
+            //     end;
+            // }
         }
     }
 }

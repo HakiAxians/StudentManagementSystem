@@ -163,21 +163,47 @@ page 50004 "StudentPage"
 
 
             }
+        }
+        area(Navigation)
+        {
 
-            action("BackToList")
+
+            action("More Details")
             {
                 Caption = 'More Details';
                 ApplicationArea = All;
-                Image = Return;
+                Image = ViewDetails;
+
+                Promoted = true;
+                PromotedCategory = Process;
+                PromotedIsBig = false;
                 trigger OnAction()
                 begin
-                    PAGE.RUN(PAGE::"StudentPage2");
+                    PAGE.RUN(PAGE::"StudentPage2", Rec);
+                end;
+
+
+            }
+            action("Delete")
+            {
+                Caption = 'Delete';
+                ApplicationArea = All;
+                Image = Delete;
+
+                Promoted = true;
+                PromotedCategory = Process;
+                PromotedIsBig = false;
+                trigger OnAction()
+                begin
+                    Rec.DELETE;
+                    CurrPage.Close();
                 end;
             }
 
-
         }
     }
+
     var
         ImportExelCodeunit: Codeunit "ImportExelCodeunit";
 }
+

@@ -51,7 +51,8 @@ page 55012 "ProfessorPage2"
                 RunObject = Page "ProfessorPage";
                 trigger OnAction()
                 begin
-                    PAGE.RUN(Page::"ProfessorPage");
+                    Rec.INIT();
+
                 end;
 
             }
@@ -62,7 +63,7 @@ page 55012 "ProfessorPage2"
                 RunObject = Page "ProfessorPage";
                 trigger OnAction()
                 begin
-                    PAGE.RUN(Page::"ProfessorPage");
+                    Rec.Modify();
                 end;
             }
             action("DeleteProfessor")
@@ -72,6 +73,8 @@ page 55012 "ProfessorPage2"
                 RunObject = Page "ProfessorPage";
                 trigger OnAction()
                 begin
+                    CurrPage.Update();
+                    Rec.DELETE(true);
                     Message('Kjo vjen me pas si pasoj e mosintegrimit hehe')
                 end;
             }
@@ -96,6 +99,7 @@ page 55012 "ProfessorPage2"
                     Image = Email;
                     trigger OnAction()
                     begin
+
                         MESSAGE('Calm before the storm');
                     end;
                 }
@@ -103,7 +107,7 @@ page 55012 "ProfessorPage2"
             action("GoToCard")
             {
                 ApplicationArea = All;
-                Caption = 'Go To Card';
+                Caption = 'Go Back';
                 Image = Card;
                 trigger OnAction()
                 begin

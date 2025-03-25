@@ -36,7 +36,7 @@ page 55009 GradePage
                     ApplicationArea = All;
                     Visible = True;
                 }
-                
+
                 field(Email; Rec.Email)
                 {
                     ApplicationArea = All;
@@ -67,7 +67,7 @@ page 55009 GradePage
                 trigger OnAction()
 
                 begin
-                    
+
                 end;
             }
 
@@ -80,9 +80,71 @@ page 55009 GradePage
                     GradeEmailCodeunit.SendEmail(Rec);
                 end;
             }
+    
+        area(Navigation)
+        {
+            group("Grade Actions")
+            {
+                action("NewGrade")
+                {
+                    ApplicationArea = All;
+                    Caption = 'New Grade';
+                    Image = New;
+                    RunObject = page "GradePage";
+                    trigger OnAction()
+                    begin
+                        PAGE.RUN(PAGE::"GradePage");
+                    end;
+                }
+                action("EditGrade")
+                {
+                    ApplicationArea = All;
+                    Caption = 'Edit Grade';
+                    Image = Edit;
+                    RunObject = page "GradePage";
+                    trigger OnAction()
+                    begin
+                        PAGE.RUN(PAGE::"GradePage");
+                    end;
+                }
+            }
+            group("More")
+            {
+                action("Delete")
+                {
+                    ApplicationArea = All;
+                    Caption = 'Delete';
+                    Image = Delete;
+
+                    Promoted = true;
+                    PromotedCategory = Process;
+                    PromotedIsBig = true;
+                    trigger OnAction()
+                    begin
+                        Rec.DELETE;
+                        MESSAGE('Grade Deleted');
+                    end;
+                }
+                action("GoToList")
+                {
+                    ApplicationArea = All;
+                    Caption = 'More details';
+                    Image = ViewDetails;
+                    Promoted = true;
+                    PromotedCategory = Process;
+                    PromotedIsBig = true;
+                    trigger OnAction()
+                    begin
+                        PAGE.RUN(PAGE::"GradePage2");
+                    end;
+                }
+            }
+
+
+
         }
-    }
 
     var
         GradeEmailCodeunit: Codeunit "GradeEmailCodeunit";
+
 }
