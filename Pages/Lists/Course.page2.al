@@ -88,6 +88,7 @@ page 53210 "CoursePage2"
                     Caption = 'New Course';
                     ApplicationArea = All;
                     Image = New;
+                    Enabled = false;
                     trigger OnAction()
                     begin
                         CurrPage.UPDATE(false);
@@ -99,6 +100,7 @@ page 53210 "CoursePage2"
                     Caption = 'Edit Course';
                     ApplicationArea = All;
                     Image = Edit;
+                    Enabled = false;
                     trigger OnAction()
                     begin
                         CurrPage.UPDATE(false);
@@ -110,6 +112,7 @@ page 53210 "CoursePage2"
                     Caption = 'Delete Course';
                     ApplicationArea = All;
                     Image = Delete;
+                    Enabled = false;
                     trigger OnAction()
                     begin
                         if CONFIRM('Are you sure you want to delete this course?', false) then
