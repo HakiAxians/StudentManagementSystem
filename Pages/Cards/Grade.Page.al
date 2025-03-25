@@ -80,7 +80,7 @@ page 55009 GradePage
                     GradeEmailCodeunit.SendEmail(Rec);
                 end;
             }
-    
+        }
         area(Navigation)
         {
             group("Grade Actions")
@@ -141,7 +141,7 @@ page 55009 GradePage
             }
 
 
-
+        }
         }
 
     var
