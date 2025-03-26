@@ -21,11 +21,13 @@ page 50010 "StudentPage2"
                 {
                     ApplicationArea = All;
                     ToolTip = 'The first name of the student';
+                    ShowMandatory = true;
                 }
                 field("Surname"; Rec.Surname)
                 {
                     ApplicationArea = All;
                     ToolTip = 'The last name of the student';
+                    ShowMandatory = true;
                 }
                 field("Date of Birth"; Rec.DateOfBirth)
                 {
@@ -40,11 +42,13 @@ page 50010 "StudentPage2"
                 {
                     ApplicationArea = All;
                     ToolTip = 'The phone number of the student';
+                    ShowMandatory = true;
                 }
                 field("Email"; Rec.Email)
                 {
                     ApplicationArea = All;
                     ToolTip = 'The email address of the student';
+                    ShowMandatory = true;
                 }
                 field("Address"; Rec.Address)
                 {
@@ -118,18 +122,17 @@ page 50010 "StudentPage2"
                 }
             }
         }
-            area(FactBoxes){
-            part("Student Photo"; "Customer Picture")
-            {   
+        area(FactBoxes){
+        part("Student Photo"; "Customer Picture")
+        {   
                 Caption = 'Student Photo';
                 ApplicationArea = Basic, Suite;
-            }
-
-            part("Sell-to Customer Sales History"; "Customer Statistics FactBox")
-            {   
-                Caption = 'Student Statistics';
-                ApplicationArea = Basic, Suite;
-            }
+        }
+        part("Transcript"; "Business Chart Part")
+        {
+                Caption = 'Transcript';
+        }
+        
 
         }
     }

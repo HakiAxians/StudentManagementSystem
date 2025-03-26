@@ -151,15 +151,16 @@ table 50000 "StudentTable"
     
     var
         Avarage: Codeunit StudentAverage;
+        Validation: Codeunit StudentRegistration;
     
     trigger OnInsert()
     begin
-        // Code for OnInsert trigger.
+        Validation.RegisterStudent(Rec);
     end;
     
     trigger OnModify()
     begin
-        // Code for OnModify trigger.
+        Validation.RegisterStudent(Rec);
     end;
     
     trigger OnDelete()

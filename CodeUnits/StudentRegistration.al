@@ -42,46 +42,14 @@ codeunit 50100 "StudentRegistration"
             Error('Student name is required.');
         if StudentRec."Surname" = '' then
             Error('Student surname is required.');
-
-        if StudentRec.Find('-') then
-            Error('Student already exists.');
-
-  
         if StudentRec."Email" = '' then
             Error('Student email is required.');
-        if not IsValidEmail(StudentRec."Email") then
-            Error('Invalid email address.');
-
-       
-        if StudentRec."DateOfBirth" <> 0D then begin
-            if DateDiff(StudentRec."DateOfBirth", Today()) < 18 then
-                Error('Student must be at least 18-60 years old.');
-        end;
-
-      
-        if not StudentRec.Find('-') then
-            StudentRec.Insert();
+        if StudentRec."Phone No" = '' then
+            Error('Student phone number is required.');
     end;
 
-    local procedure IsValidEmail(Email: Text[80]): Boolean
-    begin
-       
-        exit(StrPos(Email, '@') > 0);
-    end;
 
-    local procedure DateDiff(BirthDate: Date; CurrentDate: Date): Integer
-    var
-        BirthYear: Integer;
-        CurrentYear: Integer;
-    begin
-        BirthYear := Date2DMY(BirthDate, 3);
-        CurrentYear := Date2DMY(CurrentDate, 3);
-        exit(CurrentYear - BirthYear);
-    end;
 }
-
-
-
 
 
 
