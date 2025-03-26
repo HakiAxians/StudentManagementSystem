@@ -92,17 +92,61 @@ page 54000 "PaymentPage2"
         }
         area(Navigation)
         {
-            action("GoToCard")
+            action("GoToStudentList")
             {
-                Caption = 'Go Back';
-                Image = View;
                 ApplicationArea = All;
+                Caption = 'Go To Student List';
+                Image = Camera;
                 trigger OnAction()
                 begin
-                    CurrPage.UPDATE(false);
-                    PAGE.RUNMODAL(PAGE::"PaymentPage");
+                    PAGE.RUN(PAGE::"StudentPage2");
                 end;
             }
+            action("GoToCourseList")
+            {
+                ApplicationArea = All;
+                Caption = 'Go To Course List';
+                Image = Camera;
+                trigger OnAction()
+                begin
+                    PAGE.RUN(PAGE::"CoursePage2");
+                end;
+            }
+            action("GoToRegistrationList")
+            {
+                ApplicationArea = All;
+                Caption = 'Go To Registration List';
+                Image = Camera;
+                trigger OnAction()
+                begin
+                    PAGE.RUN(PAGE::"Registration Page2");
+                end;
+            }
+            action("GoToProfessorList")
+            {
+                ApplicationArea = All;
+                Caption = 'Go To Professor List';
+                Image = Camera;
+                trigger OnAction()
+                begin
+                    PAGE.RUN(PAGE::"ProfessorPage2");
+                end;
+            }
+            action("GoToGradeList")
+            {
+                ApplicationArea = All;
+                Caption = 'Go To Grade List';
+                Image = Camera;
+                trigger OnAction()
+                begin
+                    PAGE.RUN(PAGE::"GradePage2");
+                end;
+            }
+
+
+
+
+
         }
     }
 
