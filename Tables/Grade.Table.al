@@ -40,8 +40,10 @@ table 55004 GradeTable
         }
 
         field(30; Grade; Integer)
-        {
+        {   
             DataClassification = ToBeClassified;
+            MinValue = 5;
+            MaxValue = 10;
         }
 
         field(40; Date; Date)
