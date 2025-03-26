@@ -98,15 +98,7 @@ page 54321 "GradePage2"
         }
         area(Navigation)
         {
-            action("BackToCard")
-            {
-                ApplicationArea = All;
-                Caption = 'Back to Card';
-                trigger OnAction()
-                begin
-                    PAGE.Run(PAGE::"GradePAGE");
-                end;
-            }
+
             action("GotoStudentProfile")
             {
                 ApplicationArea = All;
@@ -115,7 +107,7 @@ page 54321 "GradePage2"
                 RunObject = page "StudentPage";
                 trigger OnAction()
                 begin
-                    PAGE.RUN(PAGE::"StudentPage", Rec);
+                    PAGE.RUN(PAGE::"StudentPage2", Rec);
                 end;
             }
             action("GotoCourseProfile")
@@ -123,10 +115,43 @@ page 54321 "GradePage2"
                 ApplicationArea = All;
                 Caption = 'Course Profile';
                 Image = Document;
-                RunObject = page "CoursePage";
+                RunObject = page "CoursePage2";
                 trigger OnAction()
                 begin
                     PAGE.RUN(PAGE::"CoursePage", Rec);
+                end;
+            }
+            action("GoToPaymentList")
+            {
+                ApplicationArea = All;
+                Caption = 'Go To Payment List';
+                Image = Camera;
+                RunObject = page "PaymentPage2";
+                trigger OnAction()
+                begin
+                    PAGE.RUN(PAGE::"PaymentPage2", Rec);
+                end;
+            }
+            action("GoToProfessorList")
+            {
+                ApplicationArea = All;
+                Caption = 'Go To Professor List';
+                Image = Camera;
+                RunObject = page "ProfessorPage2";
+                trigger OnAction()
+                begin
+                    PAGE.RUN(PAGE::"ProfessorPage2", Rec);
+                end;
+            }
+            action("GoToRegistrationList")
+            {
+                ApplicationArea = All;
+                Caption = 'Go To Registration List';
+                Image = Camera;
+                RunObject = page "Registration Page2";
+                trigger OnAction()
+                begin
+                    PAGE.RUN(PAGE::"Registration Page2", Rec);
                 end;
             }
         }

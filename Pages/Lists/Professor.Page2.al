@@ -88,7 +88,7 @@ page 55012 "ProfessorPage2"
                 end;
             }
         }
-        area(Navigation)
+        area(Creation)
         {
             group("Contact")
             {
@@ -104,16 +104,62 @@ page 55012 "ProfessorPage2"
                     end;
                 }
             }
-            action("GoToCard")
+          
+        }
+        area(Navigation)
+        {
+            action("GoToStudentList")
             {
                 ApplicationArea = All;
-                Caption = 'Go Back';
-                Image = Card;
+                Caption = 'Go to Student List';
+                Image = Camera;
                 trigger OnAction()
                 begin
-                    PAGE.RUNMODAL(Page::"ProfessorPage");
+                    PAGE.Run(PAGE::"StudentPage2");
                 end;
             }
+            action("GoToCourseList")
+            {
+                ApplicationArea = All;
+                Caption = 'Go to Course List';
+                Image = Camera;
+                trigger OnAction()
+                begin
+                    PAGE.Run(PAGE::"CoursePage2");
+                end;
+            }
+            action("GoToRegistrationList")
+            {
+                ApplicationArea = All;
+                Caption = 'Go to Registration List';
+                Image = Camera;
+                trigger OnAction()
+                begin
+                    PAGE.Run(PAGE::"Registration Page2");
+                end;
+            }
+            action("GoToPaymentList")
+            {
+                ApplicationArea = All;
+                Caption = 'Go to Payment List';
+                Image = Camera;
+                trigger OnAction()
+                begin
+                    PAGE.Run(PAGE::"PaymentPage2");
+                end;
+            }
+            action("GoToGradeList")
+            {
+                ApplicationArea = All;
+                Caption = 'Go to Grade List';
+                Image = Camera;
+                trigger OnAction()
+                begin
+                    PAGE.Run(PAGE::"GradePage2");
+                end;
+            }
+            
+
         }
     }
 

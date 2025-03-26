@@ -209,7 +209,7 @@ page 50010 "StudentPage2"
             }
         }
         }
-        area(Navigation)
+        area(Creation)
         {
             action("ExportData")
             {
@@ -239,6 +239,60 @@ page 50010 "StudentPage2"
                 trigger OnAction()
                 begin
                     CurrPage.UPDATE(false);
+                end;
+            }
+        }
+        area(Navigation)
+        {
+            action("GoToRegistrationList")
+            {
+                Caption = 'Go to Registration List';
+                Image = Camera;
+                ApplicationArea = All;
+                trigger OnAction()
+                begin
+                    PAGE.Run(PAGE::"Registration Page2");
+                end;
+            
+            }
+            action("GoToProfessorList")
+            {
+                Caption = 'Go to Professor List';
+                Image = Camera;
+                ApplicationArea = All;
+                trigger OnAction()
+                begin
+                    PAGE.Run(PAGE::"ProfessorPage2");
+                end;
+            }
+            action("GoToPaymentList")
+            {
+                Caption = 'Go to Payment List';
+                Image = Camera;
+                ApplicationArea = All;
+                trigger OnAction()
+                begin
+                    PAGE.Run(PAGE::"PaymentPage2");
+                end;
+            }
+            action("GoToCourseList")
+            {
+                Caption = 'Go to Course List';
+                Image = Camera;
+                ApplicationArea = All;
+                trigger OnAction()
+                begin
+                    PAGE.Run(PAGE::"CoursePage2");
+                end;
+            }
+            action("GoToGradeList")
+            {
+                Caption = 'Go to Grade List';
+                Image = Camera;
+                ApplicationArea = All;
+                trigger OnAction()
+                begin
+                    PAGE.Run(PAGE::"GradePage2");
                 end;
             }
         }

@@ -131,7 +131,7 @@ page 53210 "CoursePage2"
                 }
             }
         }
-        area(Navigation)
+        area(Creation)
         {
             group("Import/Print")
             {
@@ -162,6 +162,60 @@ page 53210 "CoursePage2"
 
                     end;
                 }
+            }
+        }
+        area(Navigation)
+        {
+            action("GoToStudentList")
+            {
+                Caption = 'Go To Student List';
+                ApplicationArea = All;
+                Image = Camera;
+                trigger OnAction()
+                begin
+                    PAGE.RUN(PAGE::"StudentPage2");
+                end;
+            }
+            action("GoToRegistrationList")
+            {
+                Caption = 'Go To Registration List';
+                ApplicationArea = All;
+                Image = Camera;
+                trigger OnAction()
+                begin
+                    PAGE.RUN(PAGE::"Registration Page2");
+                end;
+
+            }
+            action("GoToProfessorList")
+            {
+                Caption = 'Go To Professor List';
+                ApplicationArea = All;
+                Image = Camera;
+                trigger OnAction()
+                begin
+                    PAGE.RUN(PAGE::"ProfessorPage2");
+                end;
+            }
+            action("GoToPaymentList")
+            {
+                Caption = 'Go To Payment List';
+                ApplicationArea = All;
+                Image = Camera;
+                trigger OnAction()
+                begin
+                    PAGE.RUN(PAGE::"PaymentPage2");
+                end;
+            }
+            action("GoToGradeList")
+            {
+                Caption = 'Go To Grade List';
+                ApplicationArea = All;
+                Image = Camera;
+                trigger OnAction()
+                begin
+                    PAGE.RUN(PAGE::"GradePage2");
+                end;
             }
         }
     }
