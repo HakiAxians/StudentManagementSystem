@@ -9,7 +9,7 @@ page 55012 "ProfessorPage2"
     {
         area(Content)
         {
-            group(Professor)
+            group("Professor Information")
             {
                 field(ProfessorId; Rec.ProfessorId)
                 {
@@ -35,6 +35,55 @@ page 55012 "ProfessorPage2"
                 field("Employment Date"; Rec."Employment Date")
                 {
                     ApplicationArea = All;
+                }
+                field("Office Location"; Rec."Office Location")
+                {
+                    ApplicationArea = All;
+                }
+            }
+            group("More Information")
+            {
+                field("Phone Number"; Rec."Phone Number")
+                {
+                    ApplicationArea = All;
+                    Importance = Additional;
+                }
+
+                field("Office Hours"; Rec."Office Hours")
+                {
+                    ApplicationArea = all;
+                    Importance = Additional;
+
+                }
+                field("Highest Degree"; Rec."Highest Degree")
+                {
+                    ApplicationArea = All;
+                    Importance = Additional;
+                }
+                field("Biography"; Rec."Biography")
+                {
+                    ApplicationArea = All;
+                    Importance = Additional;
+                }
+                field("Research Interests"; Rec."Research Interests")
+                {
+                    Importance = Additional;
+                    ApplicationArea = All;
+                }
+                field("Department"; Rec."Department")
+                {
+                    ApplicationArea = All;
+                    Importance = Additional;
+                }
+                field("Courses Taught"; Rec."Courses Taught")
+                {
+                    ApplicationArea = All;
+                    Importance = Additional;
+                }
+                field("Profile Picture URL"; Rec."Profile Picture URL")
+                {
+                    ApplicationArea = All;
+                    Importance = Additional;
                 }
             }
         }
@@ -104,7 +153,7 @@ page 55012 "ProfessorPage2"
                     end;
                 }
             }
-          
+
         }
         area(Navigation)
         {
@@ -158,7 +207,7 @@ page 55012 "ProfessorPage2"
                     PAGE.Run(PAGE::"GradePage2");
                 end;
             }
-            
+
 
         }
     }

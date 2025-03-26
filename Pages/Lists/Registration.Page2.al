@@ -37,6 +37,7 @@ page 50009 "Registration Page2"
                 {
                     ApplicationArea = All;
                     ToolTip = 'The registration status';
+                    
                 }
 
             }
