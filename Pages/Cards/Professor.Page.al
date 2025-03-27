@@ -43,6 +43,18 @@ page 55011 "ProfessorPage"
 
     actions
     {
+        area(Promoted)
+        {
+            actionref(MyPromotedActionRef; "More Details")
+            {
+
+            }
+            actionref(MySplitButtonPromomtedActionRef; Delete)
+            {
+
+            }
+
+        }
         area(Processing)
         {
 
@@ -98,17 +110,15 @@ page 55011 "ProfessorPage"
                 end;
             }
 
-        }
-        area(Navigation)
-        {
+
+            // area(Navigation)
+            // {
             action("More Details")
             {
                 Caption = 'More Details';
                 Image = ViewDetails;
                 ApplicationArea = All;
-                Promoted = true;
-                PromotedCategory = Process;
-                PromotedIsBig = false;
+
                 trigger OnAction()
                 begin
                     PAGE.RUN(PAGE::"ProfessorPage2", Rec);
@@ -119,9 +129,7 @@ page 55011 "ProfessorPage"
                 Caption = 'Delete';
                 Image = Delete;
                 ApplicationArea = All;
-                Promoted = true;
-                PromotedCategory = Process;
-                PromotedIsBig = false;
+
                 trigger OnAction()
                 begin
                     Rec.Delete(true);

@@ -84,6 +84,18 @@ page 50004 "StudentPage"
     actions
 
     {
+        area(Promoted)
+        {
+            actionref(MyPromotedActionRef; "More Details")
+            {
+
+            }
+            actionref(MyOtherPromotedActionRef; "Delete")
+            {
+
+            }
+        }
+
 
         area(Processing)
         {
@@ -174,9 +186,7 @@ page 50004 "StudentPage"
                 ApplicationArea = All;
                 Image = ViewDetails;
 
-                Promoted = true;
-                PromotedCategory = Process;
-                PromotedIsBig = false;
+
                 trigger OnAction()
                 begin
                     PAGE.RUN(PAGE::"StudentPage2", Rec);
@@ -190,9 +200,7 @@ page 50004 "StudentPage"
                 ApplicationArea = All;
                 Image = Delete;
 
-                Promoted = true;
-                PromotedCategory = Process;
-                PromotedIsBig = false;
+
                 trigger OnAction()
                 begin
                     Rec.DELETE;

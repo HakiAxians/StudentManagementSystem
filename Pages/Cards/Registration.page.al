@@ -60,6 +60,17 @@ page 50005 "RegistrationPage"
 
     actions
     {
+        area(Promoted)
+        {
+            actionref(Arbi; "More Details")
+            {
+
+            }
+            actionref(Hakia; "Delete")
+            {
+
+            }
+        }
         area(Processing)
         {
 
@@ -103,9 +114,9 @@ page 50005 "RegistrationPage"
                 ApplicationArea = All;
                 Caption = 'Delete';
                 Image = Delete;
-                Promoted = true;
-                PromotedCategory = Process;
-                PromotedIsBig = false;
+                // Promoted = true;
+                // PromotedCategory = Process;
+                // PromotedIsBig = false;
                 trigger OnAction()
                 begin
                     Rec.Delete(true);
@@ -116,9 +127,9 @@ page 50005 "RegistrationPage"
                 ApplicationArea = All;
                 Caption = 'More Details';
                 Image = ViewDetails;
-                Promoted = true;
-                PromotedCategory = Process;
-                PromotedIsBig = false;
+                // Promoted = true;
+                // PromotedCategory = Process;
+                // PromotedIsBig = false;
                 trigger OnAction()
                 begin
                     PAGE.Run(PAGE::"Registration Page2", Rec);

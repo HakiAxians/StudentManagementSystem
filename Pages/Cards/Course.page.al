@@ -74,6 +74,17 @@ page 50006 "CoursePage"
 
     actions
     {
+        area(Promoted)
+        {
+            actionref(Arbi; "More Details")
+            {
+
+            }
+            actionref(Haki; "Delete")
+            {
+
+            }
+        }
         area(Processing)
         {
             action("PrintCourseReport")
@@ -136,15 +147,15 @@ page 50006 "CoursePage"
                         MESSAGE('shume shpejt');
                     end;
                 }
-                action("DeleteCourse")
+                action("Delete")
                 {
                     Caption = 'Delete';
                     ApplicationArea = All;
                     Image = Delete;
 
-                    Promoted = true;
-                    PromotedCategory = Process;
-                    PromotedIsBig = false;
+                    // Promoted = true;
+                    // PromotedCategory = Process;
+                    // PromotedIsBig = false;
 
 
 
@@ -156,14 +167,14 @@ page 50006 "CoursePage"
                         end;
                     end;
                 }
-                action("BacktoCourseList")
+                action("More Details")
                 {
                     Caption = 'More Details';
                     ApplicationArea = All;
                     Image = "ViewDetails";
-                    Promoted = true;
-                    PromotedCategory = Process;
-                    PromotedIsBig = false;
+                    // Promoted = true;
+                    // PromotedCategory = Process;
+                    // PromotedIsBig = false;
                     trigger OnAction()
                     begin
                         PAGE.RUN(PAGE::"CoursePage2");
