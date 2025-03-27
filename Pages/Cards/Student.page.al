@@ -98,87 +98,116 @@ page 50004 "StudentPage"
             {
 
             }
+            group(Options)
+            {
+                actionref(GetViewGrades; "ViewGrades")
+                {
+
+                }
+                actionref(GetSave; "Save")
+                {
+
+                }
+                actionref(GetCancel; "Cancel")
+                {
+
+                }
+                actionref(GetPrintStudentReport; "PrintStudentReport")
+                {
+
+                }
+                actionref(GetSendAMessage; "Send a Message")
+                {
+
+                }
+                actionref(GetImportData; "Import Data")
+                {
+
+                }
+
+
+            }
         }
 
 
         area(Processing)
         {
-            group("Record Actions")
-            {
-                action("Save")
-                {
-                    ApplicationArea = All;
-                    Caption = 'Save';
-                    Image = Save;
-                    trigger OnAction()
-                    begin
-                        PAGE.RUN(PAGE::"GradePage", Rec);
-                    end;
-                }
-                action("Cancel")
-                {
-                    Caption = 'Cancel';
-                    Image = Cancel;
-                    ApplicationArea = All;
-                    trigger OnAction()
-                    begin
-                        CurrPage.Close();
-                    end;
-                }
-            }
-            action("ViewGrades")
-            {
-                Caption = 'View Grades';
-                Image = ShowChart;
-                ApplicationArea = All;
-                trigger OnAction()
-                var
-                    GradePageRec: Record GradeTable;
-                begin
-                    GradePageRec.SetRange(StudentId, Rec.StudentID);
-                    PAGE.RUNMODAL(PAGE::"GradePage", GradePageRec);
-                end;
-            }
-            group("Extras")
-            {
-                action("PrintStudentReport")
-                {
-                    Caption = 'Print Student Report';
-                    Image = Print;
-                    ApplicationArea = All;
-                    trigger OnAction()
-                    var
-                        StudentReport: Report "StudentReport";
-                    begin
-                        StudentReport.SetTableView(Rec);
-                        StudentReport.RunModal();
-                    end;
-                }
-
-                action("Import Data")
-                {
-                    Caption = 'Import Data';
-                    Image = Import;
-                    ApplicationArea = All;
-                    trigger OnAction()
-                    begin
-                        ImportExelCodeunit.ReadExelSheet();
-                        ImportExelCodeunit.InsertExelData();
-                    end;
-                }
-                action("Send a Message")
-                {
-                    Caption = 'Send a Message';
-                    Image = Email;
-                    ApplicationArea = All;
-                    trigger OnAction()
-                    begin
-                        MESSAGE('Eshte vetem nje test');
-                    end;
-                }
 
 
-            }
+            // action("Save")
+            // {
+            //     ApplicationArea = All;
+            //     Caption = 'Save';
+            //     Image = Save;
+            //     trigger OnAction()
+            //     begin
+            //         PAGE.RUN(PAGE::"GradePage", Rec);
+            //     end;
+            // }
+            // action("Cancel")
+            // {
+            //     Caption = 'Cancel';
+            //     Image = Cancel;
+            //     ApplicationArea = All;
+            //     trigger OnAction()
+            //     begin
+            //         CurrPage.Close();
+            //     end;
+            // }
+
+            // action("ViewGrades")
+            // {
+            //     Caption = 'View Grades';
+            //     Image = ShowChart;
+            //     ApplicationArea = All;
+            //     trigger OnAction()
+            //     var
+            //         GradePageRec: Record GradeTable;
+            //     begin
+            //         GradePageRec.SetRange(StudentId, Rec.StudentID);
+            //         PAGE.RUNMODAL(PAGE::"GradePage", GradePageRec);
+            //     end;
+            // }
+
+
+            // action("PrintStudentReport")
+            // {
+            //     Caption = 'Print Student Report';
+            //     Image = Print;
+            //     ApplicationArea = All;
+            //     trigger OnAction()
+            //     var
+            //         StudentReport: Report "StudentReport";
+            //     begin
+            //         StudentReport.SetTableView(Rec);
+            //         StudentReport.RunModal();
+            //     end;
+            // }
+
+            // action("Import Data")
+            // {
+            //     Caption = 'Import Data';
+            //     Image = Import;
+            //     ApplicationArea = All;
+            //     trigger OnAction()
+            //     begin
+            //         ImportExelCodeunit.ReadExelSheet();
+            //         ImportExelCodeunit.InsertExelData();
+            //     end;
+            // }
+            // action("Send a Message")
+            // {
+            //     Caption = 'Send a Message';
+            //     Image = Email;
+            //     ApplicationArea = All;
+            //     trigger OnAction()
+            //     begin
+            //         MESSAGE('Eshte vetem nje test');
+            //     end;
+            // }
+
+
+
         }
         area(Navigation)
         {
@@ -208,7 +237,75 @@ page 50004 "StudentPage"
                 trigger OnAction()
                 begin
                     Rec.DELETE;
-                    CurrPage.Close();
+                    CurrPage.Update();
+                end;
+            }
+            action("Save")
+            {
+                ApplicationArea = All;
+                Caption = 'Save';
+                Image = Save;
+                trigger OnAction()
+                begin
+                    PAGE.RUN(PAGE::"GradePage", Rec);
+                end;
+            }
+            action("Cancel")
+            {
+                Caption = 'Cancel';
+                Image = Cancel;
+                ApplicationArea = All;
+                trigger OnAction()
+                begin
+                    CurrPage.Update();
+                end;
+            }
+
+            action("ViewGrades")
+            {
+                Caption = 'View Grades';
+                Image = ShowChart;
+                ApplicationArea = All;
+                trigger OnAction()
+                var
+                    GradePageRec: Record GradeTable;
+                begin
+                    GradePageRec.SetRange(StudentId, Rec.StudentID);
+                    PAGE.RUNMODAL(PAGE::"GradePage", GradePageRec);
+                end;
+            }
+            action("PrintStudentReport")
+            {
+                Caption = 'Print Student Report';
+                Image = Print;
+                ApplicationArea = All;
+                trigger OnAction()
+                var
+                    StudentReport: Report "StudentReport";
+                begin
+                    StudentReport.SetTableView(Rec);
+                    StudentReport.RunModal();
+                end;
+            }
+            action("Import Data")
+            {
+                Caption = 'Import Data';
+                Image = Import;
+                ApplicationArea = All;
+                trigger OnAction()
+                begin
+                    ImportExelCodeunit.ReadExelSheet();
+                    ImportExelCodeunit.InsertExelData();
+                end;
+            }
+            action("Send a Message")
+            {
+                Caption = 'Send a Message';
+                Image = Email;
+                ApplicationArea = All;
+                trigger OnAction()
+                begin
+                    MESSAGE('Eshte vetem nje test');
                 end;
             }
 
