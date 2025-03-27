@@ -41,6 +41,18 @@ page 55010 PaymentPage
 
     actions
     {
+        area(Promoted)
+        {
+            actionref(Arbi; "More Details")
+            {
+
+            }
+            actionref(Haki; "Delete")
+            {
+
+
+            }
+        }
         area(Processing)
         {
             action("Save")
@@ -153,10 +165,10 @@ page 55010 PaymentPage
             {
                 ApplicationArea = All;
                 Caption = 'Delete';
-                Image = Delete;
-                Promoted = true;
-                PromotedCategory = Process;
-                PromotedIsBig = false;
+                // Image = Delete;
+                // Promoted = true;
+                // PromotedCategory = Process;
+                // PromotedIsBig = false;
                 trigger OnAction()
                 begin
                     Rec.Delete(true);
@@ -168,9 +180,9 @@ page 55010 PaymentPage
                 ApplicationArea = All;
                 Caption = 'More Details';
                 Image = ViewDetails;
-                Promoted = true;
-                PromotedCategory = Process;
-                PromotedIsBig = false;
+                // Promoted = true;
+                // PromotedCategory = Process;
+                // PromotedIsBig = false;
                 trigger OnAction()
                 begin
                     PAGE.RUN(PAGE::"PaymentPage2", Rec);

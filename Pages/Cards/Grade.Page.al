@@ -59,6 +59,20 @@ page 55009 GradePage
 
     actions
     {
+        area(Promoted)
+        {
+            actionref(Arbi; "More Details")
+            {
+
+            }
+            actionref(Haki; "Delete")
+            {
+
+            }
+        }
+
+
+
         area(Processing)
         {
             action("Grade Distribution")
@@ -117,23 +131,23 @@ page 55009 GradePage
                     Caption = 'Delete';
                     Image = Delete;
 
-                    Promoted = true;
-                    PromotedCategory = Process;
-                    PromotedIsBig = true;
+                    // Promoted = true;
+                    // PromotedCategory = Process;
+                    // PromotedIsBig = true;
                     trigger OnAction()
                     begin
                         Rec.DELETE;
                         MESSAGE('Grade Deleted');
                     end;
                 }
-                action("GoToList")
+                action("More details")
                 {
                     ApplicationArea = All;
                     Caption = 'More details';
                     Image = ViewDetails;
-                    Promoted = true;
-                    PromotedCategory = Process;
-                    PromotedIsBig = true;
+                    // Promoted = true;
+                    // PromotedCategory = Process;
+                    // PromotedIsBig = true;
                     trigger OnAction()
                     begin
                         PAGE.RUN(PAGE::"GradePage2");
@@ -143,7 +157,7 @@ page 55009 GradePage
 
 
         }
-        }
+    }
 
     var
         GradeEmailCodeunit: Codeunit "GradeEmailCodeunit";
