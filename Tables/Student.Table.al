@@ -16,7 +16,7 @@ table 50000 "StudentTable"
         {
             DataClassification = ToBeClassified;
         }
-        field(20; "Name"; Text[50])
+        field(20; "Name"; Text[20])
         {
             DataClassification = ToBeClassified;
         }
@@ -124,29 +124,33 @@ table 50000 "StudentTable"
     
     keys
     {
-        key("PrimaryKey"; "StudentID", "Name")
+        key("PrimaryKey"; "StudentID")
         {
             Clustered = true;
+        }
+        key("SKey"; "Name")
+        {
+            Clustered = false;
         }
     }
     
     fieldgroups
     {
-        fieldgroup("General"; "StudentID", "Name", "Middle Name", "Surname")
-        {
-        }
-        fieldgroup("PersonalDetails"; "DateOfBirth", "Sex", "Nationality")
-        {
-        }
-        fieldgroup("ContactInfo"; "Phone No", "Email", "Address", "Emergency Contact Name", "Emergency Contact Phone")
-        {
-        }
-        fieldgroup("AcademicInfo"; "Registration Date", "Program", "Minor", "Year/Level", "GPA", "Status", Average)
-        {
-        }
-        fieldgroup("AdditionalInfo"; "Scholarship Status", "Extracurricular Activities", "Advisor", "Notes")
-        {
-        }
+        // fieldgroup("General"; "StudentID", "Name", "Middle Name", "Surname")
+        // {
+        // }
+        // fieldgroup("PersonalDetails"; "DateOfBirth", "Sex", "Nationality")
+        // {
+        // }
+        // fieldgroup("ContactInfo"; "Phone No", "Email", "Address", "Emergency Contact Name", "Emergency Contact Phone")
+        // {
+        // }
+        // fieldgroup("AcademicInfo"; "Registration Date", "Program", "Minor", "Year/Level", "GPA", "Status", Average)
+        // {
+        // }
+        // fieldgroup("AdditionalInfo"; "Scholarship Status", "Extracurricular Activities", "Advisor", "Notes")
+        // {
+        // }
     }
     
     var

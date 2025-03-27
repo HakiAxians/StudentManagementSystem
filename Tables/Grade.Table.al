@@ -75,12 +75,12 @@ table 55004 GradeTable
 
     trigger OnInsert()
     begin
-        Avarage.Average(Rec);
+        Avarage.Average();
     end;
 
     trigger OnModify()
     begin
-        Avarage.Average(Rec);
+        Avarage.Average();
     end;
 
     trigger OnDelete()

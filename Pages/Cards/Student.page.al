@@ -76,6 +76,10 @@ page 50004 "StudentPage"
                 {
                     ApplicationArea = All;
                     ToolTip = 'The average grade of the student';
+                    trigger OnValidate()
+                    begin
+                        Avarage.Average();
+                    end;
                 }
             }
         }
@@ -205,5 +209,6 @@ page 50004 "StudentPage"
 
     var
         ImportExelCodeunit: Codeunit "ImportExelCodeunit";
+        Avarage: Codeunit StudentAverage;
 }
 
