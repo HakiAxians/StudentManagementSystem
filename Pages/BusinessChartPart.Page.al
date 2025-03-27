@@ -8,7 +8,7 @@ page 55122 "Business Chart Part"
     {
         area(Content)
         {
-            usercontrol(Chart; "Microsoft.Dynamics.Nav.Client.BusinessChart")
+            usercontrol(Chart; "BusinessChart")
             {
                 ApplicationArea = All;
 
@@ -24,15 +24,13 @@ page 55122 "Business Chart Part"
                     if GradeRec.FindSet(false,false) then begin
                         GradeRec.CalcFields(Grade);
                         if GradeRec.Grade <> 0 then begin
-                            Buffer.AddColumn(GradeRec.Grade);
+                            Buffer.AddColumn(GradeRec.GradeDetailId);
                             Buffer.SetValueByIndex(0,i,GradeRec.Grade);
                             i+=1;
-                        
                         end;
                         repeat until GradeRec.Next() = 0;   
                     end;
-
-                    Buffer.Update(CurrPage.Chart);
+                    Buffer.UpdateChart(CurrPage.Chart);
                 end;
             }
         }
