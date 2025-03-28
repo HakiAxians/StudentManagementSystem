@@ -139,6 +139,22 @@ page 50010 "StudentPage2"
 
     actions
     {
+        area(Promoted)
+        {
+            actionref(GetConfirm;"ConfirmChanges")
+            {
+
+            }
+            actionref(GetScheduleMeeting;"ScheduleMeeting")
+            {
+                
+            }
+            actionref(GetCheckStatus; "CheckStatus")
+            {
+                
+            }
+
+        }
         area(Processing)
         {
             group("Student Actions")
@@ -183,15 +199,38 @@ page 50010 "StudentPage2"
                 ApplicationArea = All;
 
                
-                Promoted = true;                  
-                PromotedCategory = Process;       
-                PromotedIsBig = false;            
+                // Promoted = true;                  
+                // PromotedCategory = Process;       
+                // PromotedIsBig = false;          
+                  
                               
 
                 trigger OnAction()
                 begin
                     PAGE.RUN(PAGE::"Meeting Scheduler");
                 end;
+//             }
+//             action("ConfirmChanges")
+//             {
+//                     Caption = 'Confirm';
+//     Image = Approve;
+//     ApplicationArea = All;
+//     trigger OnAction()
+//     begin
+//         if CONFIRM('Do you want to confirm these changes?', false) then begin
+           
+//             Rec.Modify(true);
+
+           
+//             PAGE.RUN(PAGE::"StudentPage", Rec);
+
+//         end
+//         else begin
+//             MESSAGE('Operation cancelled.');
+//         end;
+//     end;
+            
+// }
             }
             group("Search")
             {
@@ -298,6 +337,54 @@ page 50010 "StudentPage2"
                     PAGE.Run(PAGE::"GradePage2");
                 end;
             }
+            action("ConfirmChanges")
+{
+    Caption = 'Confirm';
+    Image = Approve;
+    ApplicationArea = All;
+    trigger OnAction()
+    begin
+        if CONFIRM('Do you want to confirm these changes?', false) then begin
+            // 1. Save the current record
+            Rec.Modify(true);
+
+            // 2. Open another page, e.g., the Student Card
+            PAGE.RUN(PAGE::"StudentPage", Rec);
+        end else begin
+            MESSAGE('Operation cancelled.');
+        end;
+    end;
+}
+ action("CheckStatus")
+            {
+                Caption = 'Check Status';
+                Image = View;
+                ApplicationArea = All;
+                trigger OnAction()
+                var
+                    RegRec: Record "RegistrationTable";
+                    PaymentRec: Record "PaymentTable";
+                    StatusMessage: Text[250];
+                begin
+
+
+                    RegRec.SETRANGE(StudentID, Rec.StudentID);
+                    RegRec.SETRANGE(PaymentStatus, RegRec.PaymentStatus);
+                    if RegRec.FindFirst then begin
+
+                        PaymentRec.SETRANGE(StudentID, Rec.StudentID);
+                        PaymentRec.SETRANGE(Status, PaymentRec.Status);
+                        if PaymentRec.FindFirst then
+                            StatusMessage := 'The student has an active course and payment is completed.'
+                        else
+                            StatusMessage := 'The student has an active course, but payment is not completed.';
+                    end else begin
+                        StatusMessage := 'The student does not have an active course.';
+                    end;
+                    MESSAGE(StatusMessage);
+                end;
+            }
+
         }
        
 }
