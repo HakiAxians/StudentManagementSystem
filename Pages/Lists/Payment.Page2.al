@@ -34,6 +34,11 @@ page 54000 "PaymentPage2"
                 {
                     ApplicationArea = All;
                 }
+                field(Status; Rec.Status)
+                {
+                    ApplicationArea = All;
+
+                }
             }
         }
     }

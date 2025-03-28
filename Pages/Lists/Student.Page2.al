@@ -150,9 +150,7 @@ page 50010 "StudentPage2"
                 
             }
             actionref(GetCheckStatus; "CheckStatus")
-            {
-                
-            }
+            {}
 
         }
         area(Processing)
@@ -244,7 +242,7 @@ page 50010 "StudentPage2"
                         Rec.SETRANGE("Surname", 'A*');
                         Rec.SETRANGE("Email", 'A*');
                         Rec.SETRANGE("Address", 'A*');
-                        Rec.SETRANGE("Phone No", 'A*');
+                        Rec.SETFILTER("Phone No", '>=0');
                         Rec.SETFILTER("Status", 'A*');
                     end;
                 }
@@ -355,35 +353,66 @@ page 50010 "StudentPage2"
         end;
     end;
 }
- action("CheckStatus")
-            {
-                Caption = 'Check Status';
-                Image = View;
-                ApplicationArea = All;
-                trigger OnAction()
-                var
-                    RegRec: Record "RegistrationTable";
-                    PaymentRec: Record "PaymentTable";
-                    StatusMessage: Text[250];
-                begin
+//  action("CheckStatus")
+//             {
+//                 Caption = 'Check Status';
+//                 Image = View;
+//                 ApplicationArea = All;
+//                 trigger OnAction()
+//                 var
+//                     RegRec: Record "RegistrationTable";
+//                     PaymentRec: Record "PaymentTable";
+//                     StatusMessage: Text[250];
+//                 begin
 
 
-                    RegRec.SETRANGE(StudentID, Rec.StudentID);
-                    RegRec.SETRANGE(PaymentStatus, RegRec.PaymentStatus);
-                    if RegRec.FindFirst then begin
+//                     RegRec.SETRANGE(StudentID, Rec.StudentID);
+//                     RegRec.SETRANGE(PaymentStatus, RegRec.PaymentStatus);
+//                     if RegRec.FindFirst then begin
 
-                        PaymentRec.SETRANGE(StudentID, Rec.StudentID);
-                        PaymentRec.SETRANGE(Status, PaymentRec.Status);
-                        if PaymentRec.FindFirst then
-                            StatusMessage := 'The student has an active course and payment is completed.'
-                        else
-                            StatusMessage := 'The student has an active course, but payment is not completed.';
-                    end else begin
-                        StatusMessage := 'The student does not have an active course.';
-                    end;
-                    MESSAGE(StatusMessage);
-                end;
-            }
+//                         PaymentRec.SETRANGE(StudentID, Rec.StudentID);
+//                         PaymentRec.SETRANGE(Status, PaymentRec.Status);
+//                         if PaymentRec.FindFirst then
+//                             StatusMessage := 'The student has an active course and payment is completed.'
+//                         else
+//                             StatusMessage := 'The student has an active course, but payment is not completed.';
+//                     end else begin
+//                         StatusMessage := 'The student does not have an active course.';
+//                     end;
+//                     MESSAGE(StatusMessage);
+//                 end;
+//             }
+action("CheckStatus")
+{
+    Caption = 'Check Status';
+    Image = View;
+    ApplicationArea = All;
+    trigger OnAction()
+    var
+        RegRec: Record "RegistrationTable";
+        PaymentRec: Record "PaymentTable";
+        StatusMessage: Text[250];
+    begin
+       
+        RegRec.SETRANGE(StudentID, Rec.StudentID);
+        RegRec.SETRANGE("RegistrationStatus", Enum::StatusEnum::Active);
+
+        if RegRec.FindFirst then begin
+            
+            PaymentRec.SETRANGE(StudentID, Rec.StudentID);
+        PaymentRec.SETRANGE(Status, Enum::StatusEnum::Active); 
+
+        if PaymentRec.FindFirst then
+            StatusMessage := 'The student has an active course and payment is completed.'
+        else
+            StatusMessage := 'The student has an active course, but payment is not completed.';
+        end else begin
+            StatusMessage := 'The student does not have an active course.';
+        end;
+        MESSAGE(StatusMessage);
+    end;
+}
+
 
         }
        

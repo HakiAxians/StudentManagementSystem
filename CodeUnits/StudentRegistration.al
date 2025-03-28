@@ -37,14 +37,14 @@ codeunit 50100 "StudentRegistration"
 {
     procedure RegisterStudent(var StudentRec: Record "StudentTable")
     begin
-        
+
         if StudentRec."Name" = '' then
             Error('Student name is required.');
         if StudentRec."Surname" = '' then
             Error('Student surname is required.');
         if StudentRec."Email" = '' then
             Error('Student email is required.');
-        if StudentRec."Phone No" = '' then
+        if StudentRec."Phone No" = 0 then
             Error('Student phone number is required.');
     end;
 

@@ -42,7 +42,7 @@ table 50000 "StudentTable"
             DataClassification = ToBeClassified;
             // Student's nationality.
         }
-        field(60; "Phone No"; Text[20])
+        field(60; "Phone No"; Integer)
         {
             DataClassification = ToBeClassified;
         }
@@ -124,7 +124,7 @@ table 50000 "StudentTable"
     
     keys
     {
-        key("PrimaryKey"; "StudentID")
+        key("PrimaryKey"; "StudentID",Name)
         {
             Clustered = true;
         }
