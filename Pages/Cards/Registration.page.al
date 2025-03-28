@@ -70,6 +70,7 @@ page 50005 "RegistrationPage"
             {
 
             }
+            actionref(PaymentAct;Payment){}
         }
         area(Processing)
         {
@@ -133,6 +134,17 @@ page 50005 "RegistrationPage"
                 trigger OnAction()
                 begin
                     PAGE.Run(PAGE::"Registration Page2", Rec);
+                end;
+            }
+            action(Payment)
+            {
+                ApplicationArea = All;
+                Caption = 'Payment';
+                Image = Payment;
+                RunObject=page PaymentPage2;
+                trigger OnAction()
+                begin
+                    
                 end;
             }
         }

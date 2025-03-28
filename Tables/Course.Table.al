@@ -3,7 +3,12 @@ table 50002 "CourseTable"
     DataClassification = ToBeClassified;
 
     fields
-    {
+    {   
+        field(1; StudentId; Integer)
+        {
+            DataClassification = ToBeClassified;
+            TableRelation=StudentTable.StudentID;
+        }
         field(10; "CourseID"; Integer)
         {
             DataClassification = ToBeClassified;

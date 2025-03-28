@@ -24,7 +24,7 @@ query 55012 StudentEnrollemntQuery
                 {
                     
                 }
-                column(CourseID;CourseID)
+                column(CourseName;CourseName)
                 {
                     
                 }

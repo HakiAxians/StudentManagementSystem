@@ -19,7 +19,6 @@ page 55010 PaymentPage
                 field(StudentId; Rec.StudentId)
                 {
                     ApplicationArea = All;
-
                     Visible = True;
                 }
                 field(Amount; Rec.Amount)
