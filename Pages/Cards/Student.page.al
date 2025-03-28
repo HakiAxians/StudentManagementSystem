@@ -6,8 +6,8 @@ page 50004 "StudentPage"
     SourceTable = StudentTable;
     AutoSplitKey = True;
     DelayedInsert = true;
-    InsertAllowed = true;
-    ModifyAllowed = true;
+    InsertAllowed = false;
+    ModifyAllowed = false;
     SaveValues = true;
 
 
@@ -98,6 +98,10 @@ page 50004 "StudentPage"
             {
 
             }
+            actionref(GetCheckStatus; "CheckStatus")
+            {
+
+            }
             group(Options)
             {
                 actionref(GetViewGrades; "ViewGrades")
@@ -124,6 +128,7 @@ page 50004 "StudentPage"
                 {
 
                 }
+                
 
 
             }
@@ -308,6 +313,36 @@ page 50004 "StudentPage"
                     MESSAGE('Eshte vetem nje test');
                 end;
             }
+            action("CheckStatus")
+            {
+                Caption = 'Check Status';
+                Image = Info;
+                ApplicationArea = All;
+                trigger OnAction()
+                var
+                    RegRec: Record "RegistrationTable";
+                    PaymentRec: Record "PaymentTable";
+                    StatusMessage: Text[250];
+                begin
+
+
+                    RegRec.SETRANGE(StudentID, Rec.StudentID);
+                    RegRec.SETRANGE(PaymentStatus, RegRec.PaymentStatus);
+                    if RegRec.FindFirst then begin
+
+                        PaymentRec.SETRANGE(StudentID, Rec.StudentID);
+                        PaymentRec.SETRANGE(Status, PaymentRec.Status);
+                        if PaymentRec.FindFirst then
+                            StatusMessage := 'The student has an active course and payment is completed.'
+                        else
+                            StatusMessage := 'The student has an active course, but payment is not completed.';
+                    end else begin
+                        StatusMessage := 'The student does not have an active course.';
+                    end;
+                    MESSAGE(StatusMessage);
+                end;
+            }
+
 
         }
     }
