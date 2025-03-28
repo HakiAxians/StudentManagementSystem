@@ -14,6 +14,11 @@ table 55005 PaymentTable
             DataClassification = ToBeClassified;
             TableRelation = "StudentTable".StudentId;
         }
+        field(15; EnrollmentID; Integer)
+        {
+            DataClassification = ToBeClassified;
+            TableRelation= "RegistrationTable".EnrollmentID;
+        }
         field(20; Amount; Decimal)
         {
             DataClassification = ToBeClassified;

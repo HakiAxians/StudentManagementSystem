@@ -155,21 +155,6 @@ page 50004 "StudentPage"
             //     end;
             // }
 
-            // action("ViewGrades")
-            // {
-            //     Caption = 'View Grades';
-            //     Image = ShowChart;
-            //     ApplicationArea = All;
-            //     trigger OnAction()
-            //     var
-            //         GradePageRec: Record GradeTable;
-            //     begin
-            //         GradePageRec.SetRange(StudentId, Rec.StudentID);
-            //         PAGE.RUNMODAL(PAGE::"GradePage", GradePageRec);
-            //     end;
-            // }
-
-
             // action("PrintStudentReport")
             // {
             //     Caption = 'Print Student Report';
@@ -211,8 +196,14 @@ page 50004 "StudentPage"
         }
         area(Navigation)
         {
-
-
+            action(TopStudent)
+            {
+                ApplicationArea=All;
+                trigger OnAction()
+                begin
+                    GetTopStudentByCourses.GetStudentWithMostCourses();
+                end;
+            }
             action("More Details")
             {
                 Caption = 'More Details';
@@ -315,5 +306,6 @@ page 50004 "StudentPage"
     var
         ImportExelCodeunit: Codeunit "ImportExelCodeunit";
         Avarage: Codeunit StudentAverage;
+        GetTopStudentByCourses: Codeunit StudentCourseAnalysis;
 }
 
