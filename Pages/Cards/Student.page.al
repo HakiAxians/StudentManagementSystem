@@ -6,9 +6,10 @@ page 50004 "StudentPage"
     SourceTable = StudentTable;
     AutoSplitKey = True;
     DelayedInsert = true;
-    InsertAllowed = false;
-    ModifyAllowed = false;
+    InsertAllowed = true;
+    ModifyAllowed = true;
     SaveValues = true;
+    
 
 
     layout
@@ -128,8 +129,6 @@ page 50004 "StudentPage"
                 {
 
                 }
-                
-
 
             }
         }

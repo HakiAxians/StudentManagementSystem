@@ -7,7 +7,7 @@ page 55124 RollCenterPage
     {
         area(RoleCenter)
         {
-            part(Headline; "Headline RC Business Manager")
+            part(Headline; Headline)
             {
                 ApplicationArea = All;
             }
@@ -51,32 +51,38 @@ page 55124 RollCenterPage
             action(StudentsList)
             {
                 ApplicationArea = All;
+                Caption = 'Students List';
                 RunObject = Page "StudentPage2";
             }
             action(GradesList)
             {
                 ApplicationArea = All;
+                Caption = 'Grades List';
                 RunObject = Page "ProfessorPage2";
             }
             action(CoursesList)
             {
                 ApplicationArea = All;
+                Caption = 'Courses List';
                 RunObject = Page "CoursePage2";
             }
 
             action(RegistrationList)
             {
                 ApplicationArea = All;
+                Caption = 'Registration List';
                 RunObject = Page "Registration Page2";
             }
             action(PaymentsList)
             {
                 ApplicationArea = All;
+                Caption = 'Payments List';
                 RunObject = Page "PaymentPage2";
             }
             action(ProfessorList)
             {
                 ApplicationArea = All;
+                Caption = 'Professors List';
                 RunObject = Page "ProfessorPage2";
             }
     }

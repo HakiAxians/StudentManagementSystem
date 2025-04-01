@@ -115,7 +115,7 @@ table 50003 "RegistrationTable"
 
     keys
     {
-        key(EnrollmentID; EnrollmentID)
+        key(EnrollmentID; EnrollmentID,Name)
         {
             Clustered = true;
         }

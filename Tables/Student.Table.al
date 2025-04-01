@@ -128,10 +128,6 @@ table 50000 "StudentTable"
         {
             Clustered = true;
         }
-        key("SKey"; "Name")
-        {
-            Clustered = false;
-        }
     }
     
     fieldgroups
