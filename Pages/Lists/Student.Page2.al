@@ -128,10 +128,10 @@ page 50010 "StudentPage2"
                 Caption = 'Student Photo';
                 ApplicationArea = Basic, Suite;
         }
-        part("Transcript"; "Business Chart Part")
-        {
-                Caption = 'Transcript';
-        }
+        // part("Transcript"; "Business Chart Part")
+        // {
+        //         Caption = 'Transcript';
+        // }
         
 
         }
