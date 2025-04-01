@@ -24,6 +24,12 @@ page 50005 "RegistrationPage"
                     ApplicationArea = All;
                     ToolTip = 'The student ID';
                     Visible = false;
+                    trigger OnValidate()
+                    begin
+                        //
+                        //nbaz te primary keys se studentit shtoje vleren korrekte tek Rec.Name ose student name
+                        //
+                    end;
                 }
                 field("Student Name"; Rec.Name)
                 {

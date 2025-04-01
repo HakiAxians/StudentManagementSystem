@@ -394,23 +394,22 @@ action("CheckStatus")
         StatusMessage: Text[250];
     begin
        
-        RegRec.SETRANGE(StudentID, Rec.StudentID);
-        RegRec.SETRANGE("RegistrationStatus", Enum::StatusEnum::Active);
+         RegRec.SETRANGE(StudentID, Rec.StudentID);
+         RegRec.SETRANGE("RegistrationStatus", Enum::StatusEnum::Active);
+        if RegRec.FindSet() then repeat
+            Message(RegRec.CourseName);
+    
+        until RegRec.Next() = 0;
 
-        if RegRec.FindFirst then begin
-            
-            PaymentRec.SETRANGE(StudentID, Rec.StudentID);
-        PaymentRec.SETRANGE(Status, Enum::StatusEnum::Active); 
-
-        if PaymentRec.FindFirst then
-            StatusMessage := 'The student has an active course and payment is completed.'
-        else
-            StatusMessage := 'The student has an active course, but payment is not completed.';
-        end else begin
-            StatusMessage := 'The student does not have an active course.';
+           PaymentRec.SETRANGE(StudentID, Rec.StudentID);
+   
+        if PaymentRec.FindLast() then begin
+            Message(Format(PaymentRec.PaymentDate));
         end;
-        MESSAGE(StatusMessage);
+     
     end;
+    
+
 }
 
 
