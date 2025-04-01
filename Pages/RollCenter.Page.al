@@ -1,0 +1,82 @@
+page 55124 RollCenterPage
+{
+    PageType = RoleCenter;
+    ApplicationArea = All;
+    
+    layout
+    {
+        area(RoleCenter)
+        {
+            part(Headline; "Headline RC Business Manager")
+            {
+                ApplicationArea = All;
+            }
+        }
+    }
+    
+    actions
+    {
+        area(Sections)
+        {
+            group(Pages)
+            {
+            action(Students)
+            {
+                ApplicationArea = All;
+                RunObject = Page "StudentPage";
+            }
+            action(Grades)
+            {
+                ApplicationArea = All;
+                RunObject = Page "ProfessorPage";
+            }
+            action(Courses)
+            {
+                ApplicationArea = All;
+                RunObject = Page "CoursePage";
+            }
+            action(Registration)
+            {
+                ApplicationArea = All;
+                RunObject = Page "RegistrationPage";
+            }
+            action(Payments)
+            {
+                ApplicationArea = All;
+                RunObject = Page "PaymentPage";
+            }
+        }
+    }
+    area(Creation){
+            action(StudentsList)
+            {
+                ApplicationArea = All;
+                RunObject = Page "StudentPage2";
+            }
+            action(GradesList)
+            {
+                ApplicationArea = All;
+                RunObject = Page "ProfessorPage2";
+            }
+            action(CoursesList)
+            {
+                ApplicationArea = All;
+                RunObject = Page "CoursePage2";
+            }
+
+            action(RegistrationList)
+            {
+                ApplicationArea = All;
+                RunObject = Page "Registration Page2";
+            }
+            action(PaymentsList)
+            {
+                ApplicationArea = All;
+                RunObject = Page "PaymentPage2";
+            }
+    }
+    }
+    
+    var
+        myInt: Integer;
+}
