@@ -16,6 +16,13 @@ page 50010 "StudentPage2"
                 {
                     ApplicationArea = All;
                     ToolTip = 'The student number';
+                      trigger OnValidate()
+                    begin
+                        if (Rec.StudentID) < 1 then
+                            Error('Student ID must be between 1 and 100');
+                        if (Rec.StudentID) > 100 then
+                            Error('Student ID must be between 1 and 100');
+                    end;
                 }
                 field("Name"; Rec.Name)
                 {
@@ -405,6 +412,7 @@ action("CheckStatus")
    
         if PaymentRec.FindLast() then begin
             Message(Format(PaymentRec.PaymentDate));
+              Message(Format(PaymentRec.Amount));
         end;
      
     end;
