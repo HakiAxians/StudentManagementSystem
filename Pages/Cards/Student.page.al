@@ -92,6 +92,7 @@ page 50004 "StudentPage"
                         Avarage.Average();
                     end;
                 }
+                
             }
         }
     }

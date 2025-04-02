@@ -11,6 +11,11 @@ page 55124 RollCenterPage
             {
                 ApplicationArea = All;
             }
+            part("Student Page"; RoleCenterPart)
+            {
+                Caption = 'Student Management System';
+                ApplicationArea = All;
+            }  
         }
     }
     

@@ -120,11 +120,17 @@ table 50000 "StudentTable"
         {
             DataClassification = ToBeClassified;
         }
+        field(165; Count; Integer)
+        {
+            Caption = 'Number of Students';
+            FieldClass=FlowField;
+            CalcFormula = Count("StudentTable");
+        }
     }
 
     keys
     {
-        key("PrimaryKey"; "Name", StudentID)
+        key("PrimaryKey"; "StudentID")
         {
             Clustered = true;
         }
