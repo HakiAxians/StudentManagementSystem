@@ -6,8 +6,8 @@ page 50004 "StudentPage"
     SourceTable = StudentTable;
     AutoSplitKey = True;
     DelayedInsert = true;
-    InsertAllowed = false;
-    ModifyAllowed = false;
+    InsertAllowed = true;
+    ModifyAllowed = true;
     SaveValues = true;
 
 
@@ -22,9 +22,19 @@ page 50004 "StudentPage"
                     ApplicationArea = All;
                     ToolTip = 'The student number';
                     Editable = false;
+
                     trigger OnDrillDown()
                     begin
                         Page.Run(Page::StudentPage2, Rec);
+                    end;
+
+                    trigger OnValidate()
+                    begin
+                        if (Rec.StudentID) < 1 then
+                            Error('Student ID must be between 1 and 100');
+                        if (Rec.StudentID) > 100 then
+                            Error('Student ID must be between 1 and 100');
+
                     end;
                 }
                 field("Name"; Rec.Name)
@@ -128,7 +138,7 @@ page 50004 "StudentPage"
                 {
 
                 }
-                
+
 
 
             }
@@ -203,7 +213,7 @@ page 50004 "StudentPage"
         {
             action(TopStudent)
             {
-                ApplicationArea=All;
+                ApplicationArea = All;
                 trigger OnAction()
                 begin
                     GetTopStudentByCourses.GetStudentWithMostCourses();
@@ -309,29 +319,29 @@ page 50004 "StudentPage"
                 Caption = 'Check Status';
                 Image = Info;
                 ApplicationArea = All;
-                trigger OnAction()
-                var
-                    RegRec: Record "RegistrationTable";
-                    PaymentRec: Record "PaymentTable";
-                    StatusMessage: Text[250];
-                begin
+                // trigger OnAction()
+                // var
+                //     RegRec: Record "RegistrationTable";
+                //     PaymentRec: Record "PaymentTable";
+                //     StatusMessage: Text[250];
+                // begin
 
 
-                    RegRec.SETRANGE(StudentID, Rec.StudentID);
-                    RegRec.SETRANGE(PaymentStatus, RegRec.PaymentStatus);
-                    if RegRec.FindFirst then begin
+                //     RegRec.SETRANGE(StudentID, Rec.StudentID);
+                //     RegRec.SETRANGE(PaymentStatus, RegRec.PaymentStatus);
+                //     if RegRec.FindFirst then begin
 
-                        PaymentRec.SETRANGE(StudentID, Rec.StudentID);
-                        PaymentRec.SETRANGE(Status, PaymentRec.Status);
-                        if PaymentRec.FindFirst then
-                            StatusMessage := 'The student has an active course and payment is completed.'
-                        else
-                            StatusMessage := 'The student has an active course, but payment is not completed.';
-                    end else begin
-                        StatusMessage := 'The student does not have an active course.';
-                    end;
-                    MESSAGE(StatusMessage);
-                end;
+                //         PaymentRec.SETRANGE(StudentID, Rec.StudentID);
+                //         PaymentRec.SETRANGE(Status, PaymentRec.Status);
+                //         if PaymentRec.FindFirst then
+                //             StatusMessage := 'The student has an active course and payment is completed.'
+                //         else
+                //             StatusMessage := 'The student has an active course, but payment is not completed.';
+                //     end else begin
+                //         StatusMessage := 'The student does not have an active course.';
+                //     end;
+                //     MESSAGE(StatusMessage);
+                // end;
             }
 
 

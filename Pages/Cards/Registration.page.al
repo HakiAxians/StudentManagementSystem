@@ -29,6 +29,12 @@ page 50005 "RegistrationPage"
                         //
                         //nbaz te primary keys se studentit shtoje vleren korrekte tek Rec.Name ose student name
                         //
+
+                        // if StudentRec.Get(Rec.StudentID) then begin
+
+                        //     Rec.Name := StudentRec.Name;
+                        // end else
+                        //     Error('Student not found for Student ID: %1', Rec.StudentID);
                     end;
                 }
                 field("Student Name"; Rec.Name)
@@ -76,7 +82,7 @@ page 50005 "RegistrationPage"
             {
 
             }
-            actionref(PaymentAct;Payment){}
+            actionref(PaymentAct; Payment) { }
         }
         area(Processing)
         {
@@ -147,10 +153,10 @@ page 50005 "RegistrationPage"
                 ApplicationArea = All;
                 Caption = 'Payment';
                 Image = Payment;
-                RunObject=page PaymentPage2;
+                RunObject = page PaymentPage2;
                 trigger OnAction()
                 begin
-                    
+
                 end;
             }
         }
