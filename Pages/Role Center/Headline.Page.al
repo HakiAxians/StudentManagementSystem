@@ -22,6 +22,6 @@ page 55125 Headline
     var
         HeadLineTxt1: Label 'Welcome to Student Management System!';
         HeadLineTxt2: Label 'This is a simple system to manage students, courses, grades and payments.';
-        HeadLineTxt3: Label 'Credits to: Haki Pintolli and Arbian Shala';
+        HeadLineTxt3: Label 'Credits to: Arbian Shala and Haki Pintolli';
 
 }
