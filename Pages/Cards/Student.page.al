@@ -9,6 +9,7 @@ page 50004 "StudentPage"
     InsertAllowed = true;
     ModifyAllowed = true;
     SaveValues = true;
+    
 
 
     layout
@@ -138,8 +139,6 @@ page 50004 "StudentPage"
                 {
 
                 }
-
-
 
             }
         }

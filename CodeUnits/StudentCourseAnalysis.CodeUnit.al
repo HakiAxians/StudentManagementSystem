@@ -2,31 +2,45 @@ codeunit 55130 StudentCourseAnalysis
 {
     procedure GetStudentWithMostCourses()
     var
-        CoursesRec: Record "CourseTable";
-        StudentCount: Integer;
-        MostCoursesStudent: Integer;
+        RegRec: Record "RegistrationTable";
+        StuRec: Record "StudentTable";
+        CurrentStudent: Text;
+        CurrentCount: Integer;
+        MaxStudent: Text;
         MaxCount: Integer;
     begin
+        CurrentStudent := '';
+        CurrentCount := 0;
+        MaxStudent := '';
         MaxCount := 0;
-        MostCoursesStudent := 0;
 
-        // Kërko të gjitha lidhjet mes studentëve dhe kurseve
-        if CoursesRec.FindSet() then
+        RegRec.SETCURRENTKEY(Name);
+        if RegRec.FindSet() then begin
             repeat
-            if CoursesRec.StudentId<>0 then begin
-                // Numëroni kurset për çdo student
-                CoursesRec.Get(CoursesRec.StudentID);
-                StudentCount := CoursesRec.Count;
 
-                // Përshtat studentin me numrin më të madh të kurseve
-                if StudentCount > MaxCount then begin
-                    MaxCount := StudentCount;
-                    MostCoursesStudent := CoursesRec.StudentId;
+                if RegRec.Name <> CurrentStudent then begin
+                    if CurrentCount > MaxCount then begin
+                        MaxCount := CurrentCount;
+                        MaxStudent := CurrentStudent;
+                    end;
+
+                    CurrentStudent := RegRec.Name;
+                    CurrentCount := 0;
                 end;
-            end;
-            until CoursesRec.Next() = 0;
 
-        // Kthe studentin me më shumë kurse dhe numrin e kurseve
-        Message('The student with the most courses has id: %1 and the number of courses is: %2',MostCoursesStudent,MaxCount);
+                CurrentCount += 1;
+
+            until RegRec.Next() = 0;
+
+            if CurrentCount > MaxCount then begin
+                MaxCount := CurrentCount;
+                MaxStudent := CurrentStudent;
+            end;
+        end;
+
+        if MaxStudent <> '' then
+            Message('The student with the most courses is %1 with %2 courses.', MaxStudent, MaxCount)
+        else
+            Message('No students found in the registration table.');
     end;
 }
