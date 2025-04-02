@@ -21,6 +21,24 @@ page 55127 RoleCenterPart
                         PAGE.RunModal(PAGE::"StudentPage", Rec);
                     end;
                 }
+                field("Courses"; Course.Count)
+                {
+                    ApplicationArea = All;
+                    Caption = 'Courses';
+                    trigger OnDrillDown()
+                    begin
+                        PAGE.RunModal(PAGE::"CoursePage", Course);
+                    end;
+                }
+                field("Professors"; Professor.Count)
+                {
+                    ApplicationArea = All;
+                    Caption = 'Professors';
+                    trigger OnDrillDown()
+                    begin
+                        PAGE.RunModal(PAGE::"ProfessorPage", Professor);
+                    end;
+                }
             }
         }
     }
@@ -29,19 +47,12 @@ page 55127 RoleCenterPart
     {
         area(Processing)
         {
-            action(ActionName)
-            {
 
-                trigger OnAction()
-                begin
-
-                end;
-            }
         }
     }
 
 
     var
         Course: Record CourseTable;
-
+        Professor: Record ProfessorTable;
 }

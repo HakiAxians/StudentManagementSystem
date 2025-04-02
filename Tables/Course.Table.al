@@ -49,11 +49,6 @@ table 50002 "CourseTable"
         {
             DataClassification = ToBeClassified;
         }
-        field(165; Countii; Integer)
-        {
-            FieldClass = FlowField;
-            CalcFormula = Count("CourseTable");
-        }
     }
 
 

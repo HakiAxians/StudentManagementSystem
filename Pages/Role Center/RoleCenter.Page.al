@@ -15,7 +15,7 @@ page 55124 RollCenterPage
             {
                 Caption = 'Student Management System';
                 ApplicationArea = All;
-            }  
+            }
         }
     }
     

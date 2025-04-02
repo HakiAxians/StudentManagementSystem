@@ -130,7 +130,7 @@ table 50000 "StudentTable"
 
     keys
     {
-        key("PrimaryKey"; "StudentID")
+        key("PrimaryKey"; "StudentID",Name)
         {
             Clustered = true;
         }
