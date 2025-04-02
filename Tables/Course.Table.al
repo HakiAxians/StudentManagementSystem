@@ -3,11 +3,11 @@ table 50002 "CourseTable"
     DataClassification = ToBeClassified;
 
     fields
-    {   
+    {
         field(1; StudentId; Integer)
         {
             DataClassification = ToBeClassified;
-            TableRelation=StudentTable.StudentID;
+            TableRelation = StudentTable.StudentID;
         }
         field(10; "CourseID"; Integer)
         {
@@ -49,12 +49,17 @@ table 50002 "CourseTable"
         {
             DataClassification = ToBeClassified;
         }
+        field(165; Countii; Integer)
+        {
+            FieldClass = FlowField;
+            CalcFormula = Count("CourseTable");
+        }
     }
 
 
     keys
     {
-        key(CourseID; CourseID,CourseName)
+        key(CourseID; CourseID, CourseName)
         {
             Clustered = true;
         }

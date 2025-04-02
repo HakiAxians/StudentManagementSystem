@@ -120,11 +120,17 @@ table 50000 "StudentTable"
         {
             DataClassification = ToBeClassified;
         }
+        field(165; Count; Integer)
+        {
+            Caption = 'Number of Students';
+            FieldClass=FlowField;
+            CalcFormula = Count("StudentTable");
+        }
     }
     
     keys
     {
-        key("PrimaryKey"; "StudentID",Name)
+        key("PrimaryKey"; "StudentID")
         {
             Clustered = true;
         }
@@ -152,6 +158,7 @@ table 50000 "StudentTable"
     var
         Avarage: Codeunit StudentAverage;
         Validation: Codeunit StudentRegistration;
+        
     
     trigger OnInsert()
     begin
