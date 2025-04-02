@@ -1,7 +1,7 @@
 table 50000 "StudentTable"
 {
     DataClassification = ToBeClassified;
-    
+
     fields
     {
         field(10; "StudentID"; Integer)
@@ -127,7 +127,7 @@ table 50000 "StudentTable"
             CalcFormula = Count("StudentTable");
         }
     }
-    
+
     keys
     {
         key("PrimaryKey"; "StudentID")
@@ -135,7 +135,7 @@ table 50000 "StudentTable"
             Clustered = true;
         }
     }
-    
+
     fieldgroups
     {
         // fieldgroup("General"; "StudentID", "Name", "Middle Name", "Surname")
@@ -154,27 +154,26 @@ table 50000 "StudentTable"
         // {
         // }
     }
-    
+
     var
         Avarage: Codeunit StudentAverage;
         Validation: Codeunit StudentRegistration;
-        
-    
+
     trigger OnInsert()
     begin
         Validation.RegisterStudent(Rec);
     end;
-    
+
     trigger OnModify()
     begin
         Validation.RegisterStudent(Rec);
     end;
-    
+
     trigger OnDelete()
     begin
         // Code for OnDelete trigger.
     end;
-    
+
     trigger OnRename()
     begin
         // Code for OnRename trigger.
