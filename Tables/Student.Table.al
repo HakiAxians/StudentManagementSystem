@@ -20,6 +20,7 @@ table 50000 "StudentTable"
         {
             DataClassification = ToBeClassified;
         }
+
         field(25; "Middle Name"; Text[50])
         {
             DataClassification = ToBeClassified;
@@ -123,14 +124,14 @@ table 50000 "StudentTable"
         field(165; Count; Integer)
         {
             Caption = 'Number of Students';
-            FieldClass=FlowField;
+            FieldClass = FlowField;
             CalcFormula = Count("StudentTable");
         }
     }
 
     keys
     {
-        key("PrimaryKey"; Name,"StudentID")
+        key("PrimaryKey"; Name, "StudentID")
         {
             Clustered = true;
         }
