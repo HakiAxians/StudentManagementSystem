@@ -27,7 +27,7 @@ page 55127 RoleCenterPart
                     Caption = 'Courses';
                     trigger OnDrillDown()
                     begin
-                        PAGE.RunModal(PAGE::"CoursePage", Course);
+                        PAGE.RunModal(PAGE::"CoursePage");
                     end;
                 }
                 field("Professors"; Professor.Count)
@@ -36,7 +36,7 @@ page 55127 RoleCenterPart
                     Caption = 'Professors';
                     trigger OnDrillDown()
                     begin
-                        PAGE.RunModal(PAGE::"ProfessorPage", Professor);
+                        PAGE.RunModal(PAGE::"ProfessorPage");
                     end;
                 }
             }
