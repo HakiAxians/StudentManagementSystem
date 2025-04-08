@@ -59,6 +59,11 @@ page 50005 "RegistrationPage"
                 {
                     ApplicationArea = All;
                     ToolTip = 'The registration date';
+                    trigger OnValidate()
+                    
+                    begin
+                    EventPublisher.OnStudentAssignedToCourse(Rec.Name, Rec.CourseName);
+                    end;
                 }
                 field("Registration Status"; Rec.RegistrationStatus)
                 {
@@ -163,4 +168,6 @@ page 50005 "RegistrationPage"
 
 
     }
+        var     
+        EventPublisher: Codeunit "CourseManagment";
 }
