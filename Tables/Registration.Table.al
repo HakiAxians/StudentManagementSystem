@@ -115,9 +115,13 @@ table 50003 "RegistrationTable"
 
     keys
     {
-        key(EnrollmentID; EnrollmentID,Name)
+        key(PK; EnrollmentID,Name)
         {
             Clustered = true;
+        }
+        key(SK; StudentID,CourseID)
+        {
+            Clustered = false;
         }
     }
 
@@ -127,10 +131,11 @@ table 50003 "RegistrationTable"
     }
 
     var
-        myInt: Integer;
+        // EventPublisher: Codeunit "CourseManagment";
 
     trigger OnInsert()
     begin
+        // EventPublisher.OnStudentAssignedToCourse(StudentID, CourseID);
     end;
 
     trigger OnModify()
@@ -144,4 +149,5 @@ table 50003 "RegistrationTable"
     trigger OnRename()
     begin
     end;
+
 }
