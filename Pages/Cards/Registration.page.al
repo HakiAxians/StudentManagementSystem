@@ -59,11 +59,12 @@ page 50005 "RegistrationPage"
                 {
                     ApplicationArea = All;
                     ToolTip = 'The registration date';
-                    trigger OnValidate()
-                    
-                    begin
-                    EventPublisher.OnStudentAssignedToCourse(Rec.Name, Rec.CourseName);
-                    end;
+                    // trigger OnValidate()
+
+                    // begin
+                    //     OnStudentAssignedToCourse(Rec.Name, Rec.CourseName);
+                    //     //EventPublisher.OnStudentAssignedToCourse(Rec.Name, Rec.CourseName);
+                    // end;
                 }
                 field("Registration Status"; Rec.RegistrationStatus)
                 {
@@ -164,10 +165,29 @@ page 50005 "RegistrationPage"
 
                 end;
             }
+
+            action("Event Subscriber")
+            {
+                ApplicationArea = All;
+                Caption = 'Event Subscriber';
+                trigger OnAction()
+                begin
+                    BindSubscription(CourseAssigmentLogger);
+                    OnStudentAssignedToCourse(Rec);
+                    UnbindSubscription(CourseAssigmentLogger);
+                end;
+            }
+
         }
 
 
     }
-        var     
-        EventPublisher: Codeunit "CourseManagment";
+    var
+    CourseAssigmentLogger: Codeunit "CourseAssigmentLogger";
+
+    [IntegrationEvent(false, false)]
+    procedure OnStudentAssignedToCourse(Rec: Record "RegistrationTable")
+    begin
+    end;
+
 }

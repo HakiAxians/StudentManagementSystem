@@ -45,81 +45,81 @@ table 50003 "RegistrationTable"
             OptionMembers = Online,"In-Person";
             OptionCaption = 'Online, In-Person';
 
-           
+
         }
         field(62; PaymentStatus; Enum PaymentStatusEnum)
         {
             DataClassification = ToBeClassified;
-            
+
         }
         field(64; DiscountAmount; Integer)
         {
             DataClassification = ToBeClassified;
-           
+
         }
         field(66; RegistrationRemarks; Text[250])
         {
             DataClassification = ToBeClassified;
-            
+
         }
         field(68; EnrollmentType; Option)
         {
             DataClassification = ToBeClassified;
             OptionMembers = Regular,"Special","Audit";
             OptionCaption = 'Regular, Special, Audit';
-           
+
         }
         field(70; RegistrationChannel; Option)
         {
             DataClassification = ToBeClassified;
             OptionMembers = Website,Event,Referral;
             OptionCaption = 'Website, Event, Referral';
-           
+
         }
         field(72; TotalFee; Integer)
         {
             DataClassification = ToBeClassified;
-            
+
         }
         field(74; ScholarshipApplied; Boolean)
         {
             DataClassification = ToBeClassified;
-            
+
         }
         field(76; Referrer; Text[50])
         {
             DataClassification = ToBeClassified;
-            
+
         }
         field(78; ProcessedBy; Text[30])
         {
             DataClassification = ToBeClassified;
-            
+
         }
         field(80; FollowUpDate; Date)
         {
             DataClassification = ToBeClassified;
-            
+
         }
         field(82; ApprovalComments; Text[250])
         {
             DataClassification = ToBeClassified;
-            
+
         }
         field(84; PaymentReference; Text[50])
         {
             DataClassification = ToBeClassified;
-           
+
         }
     }
 
     keys
     {
-        key(PK; EnrollmentID,Name)
+        key(PK; EnrollmentID, Name)
         {
             Clustered = true;
         }
-        key(SK; StudentID,CourseID)
+        key(SK; StudentID, CourseID)
         {
             Clustered = false;
         }
@@ -131,11 +131,13 @@ table 50003 "RegistrationTable"
     }
 
     var
-        // EventPublisher: Codeunit "CourseManagment";
+    // EventPublisher: Codeunit "CourseManagment";
 
     trigger OnInsert()
     begin
-        // EventPublisher.OnStudentAssignedToCourse(StudentID, CourseID);
+        // BindSubscription(CourseAssigmentLogger);
+        // OnStudentAssignedToCourse(Rec);
+        // UnbindSubscription(CourseAssigmentLogger);
     end;
 
     trigger OnModify()
@@ -149,5 +151,11 @@ table 50003 "RegistrationTable"
     trigger OnRename()
     begin
     end;
+    var 
+    // CourseAssigmentLogger: Codeunit "CourseAssigmentLogger";
+    // [IntegrationEvent(false, false)]
+    // procedure OnStudentAssignedToCourse(Rec: Record "RegistrationTable")
+    // begin
+    // end;
 
 }
