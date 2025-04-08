@@ -50,6 +50,11 @@ page 55124 RollCenterPage
                 ApplicationArea = All;
                 RunObject = Page "PaymentPage";
             }
+            action(Professor)
+            {
+                ApplicationArea = All;
+                RunObject = Page "ProfessorPage";
+            }
         }
     }
     area(Creation){
